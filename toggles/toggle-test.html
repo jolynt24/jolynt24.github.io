@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Light and Dark Toggle with Images</title>
+  <style>
+    /* CSS for the light and dark themes */
+    body {
+      transition: all 0.5s ease;
+    }
+
+    .light-theme {
+      background-color: white;
+      color: black;
+    }
+
+    .dark-theme {
+      background-color: black;
+      color: white;
+    }
+
+    /* CSS for the toggle switch */
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 25px;
+    }
+
+    .toggle-switch input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50px;
+      height: 25px;
+      opacity: 0;
+    }
+
+    .toggle-switch input:checked {
+      opacity: 1;
+    }
+
+    .toggle-switch .slider {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50px;
+      height: 25px;
+      background-color: #ccc;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.5s ease;
+    }
+
+    .toggle-switch input:checked + .slider {
+      background-color: #000;
+    }
+
+    .toggle-switch .slider:before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 18px;
+      height: 18px;
+      background-image: url("light.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: all 0.5s ease;
+    }
+
+    .toggle-switch input:checked + .slider:before {
+      background-image: url("dark.png");
+    }
+  </style>
+</head>
+<body class="light-theme">
+  <h1>Light and Dark Toggle with Images</h1>
+
+  <div class="toggle-switch">
+    <input type="checkbox" id="toggle" checked>
+    <label for="toggle" class="slider"></label>
+  </div>
+
+  <p>This is a paragraph of text.</p>
+
+  <script>
+    // JavaScript to toggle the light and dark themes
+    document.getElementById("toggle").addEventListener("change", function() {
+      if (this.checked) {
+        document.body.classList.add("dark-theme");
+        document.body.classList.remove("light-theme");
+      } else {
+        document.body.classList.add("light-theme");
+        document.body.classList.remove("dark-theme");
+      }
+    });
+  </script>
+</body>
+</html>

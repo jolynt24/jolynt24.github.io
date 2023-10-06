@@ -1,0 +1,19 @@
+body {
+    font-family: sans-serif;
+    text-align: center;
+    background-color: #fff9ea;
+  }
+
+  h1 {
+    font-size: 50px;
+    color: #ff7221;
+  }
+
+  p {
+    font-size: 20px;
+  }
+
+  img {
+    width: 450px;
+    height: 450px;
+  }

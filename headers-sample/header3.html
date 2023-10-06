@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Website</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #ffffff;
+    }
+
+    header {
+      background-color: #ffffff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .dark-mode {
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    .header-logo {
+      width: 200px;
+      height: 200px;
+    }
+
+    .header-title {
+      font-size: 40px;
+    }
+
+    .header-subtitle {
+      font-size: 20px;
+    }
+
+    .toggle-switch {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-switch label {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+
+    .toggle-switch label .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    .toggle-switch label .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    .toggle-switch input:checked + label .slider {
+      background-color: #2196F3;
+    }
+
+    .toggle-switch input:focus + label .slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+
+    .toggle-switch input:checked + label .slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img class="header-logo" src="https://example.com/logo.png" alt="My Website Logo">
+    <h1 class="header-title">My Website</h1>
+    <h2 class="header-subtitle">This is my website.</h2>
+
+    <div class="toggle-switch">
+      <input type="checkbox" id="toggle">
+      <label for="toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </header>
+
+  <script>
+    var toggle = document.getElementById("toggle");
+
+    toggle.addEventListener("change", function() {
+      document.body.classList.toggle("dark-mode");
+    });
+  </script>
+</body>
+</html>

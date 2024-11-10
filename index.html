@@ -3,12 +3,213 @@
 <head>
   <title>My Website Under Construction</title>
   <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+  <div class="main-content">
+    <div id="header">
+      <nav>
+        <button class="nav-btn" aria-expanded="false"><i class="fa-solid fa-square-caret-down"></i></button>
+        <div class="nav-menu-option">
+          <a href="#about-me">about me</a>
+          <a href="#skills">skills</a>
+          <a href="#projects">projects</a>
+          <a href="#experience">timeline</a>
+        </div>
+      </nav>
+      <h1 class="title">Jolyn</h1>
+      <p class="subtitle"> DevOps Engineer | Solving Problems, Building Solutions </p>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/jolyn-tellis/"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/jolynt24"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
 
-  <h1>Under Construction!!</h1>
-  <p>This website is getting a new coat of pixels. Please be mindful of the construction sparks!</p>
-  <img src="img/beaver_construction.jpg" alt="Two beavers infront of a construction sign">
+    <section id="section">
+      <h3 class="section-head">about me</h3>
+      <div class="about-me-content">
+        <p>I'm a DevOps Engineer, recently completed a 2-year graduate program at one of UK's largest financial services organisation, where I was twice nominated for the Women in Tech Excellence Award. My expertise include Java microservices, Python and building deployment processes using Bash, Jenkins, Docker, Kubernetes, Helm and GCP. I enjoy continous learning, journaling, traveling and hiking.</p>
+      </div>
+    </section>
 
+    <section id="section">
+      <h3 class="section-head">skills</h3>
+
+      <h4>Programming/Scripting</h4>
+      <div class="skills-carousel carousel"> 
+        <div class="skill-item">
+          <img src="https://img.icons8.com/?size=100&id=13679&format=png&color=000000" alt="Java icon">
+          <h5>Java</h5>
+        </div>
+        <div class="skill-item">
+          <img src="https://img.icons8.com/?size=100&id=13441&format=png&color=000000" alt="Python icon">
+          <h5>Python</h5>
+        </div>
+        <div class="skill-item">
+          <img src="https://img.icons8.com/?size=100&id=9MJf0ngDwS8z&format=png&color=000000" alt="Bash icon">
+          <h5>Bash</h5>
+        </div>
+        <div class="skill-item">
+          <img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000" alt="HTML 5 icon">
+          <h5>HTML</h5>
+        </div>
+        <div class="skill-item">
+          <img src="https://img.icons8.com/?size=100&id=44442&format=png&color=000000" alt="Beaver image">
+          <h5>Golang</h5>
+        </div>
+      </div>
+
+      <h4>Tools</h4>
+      <div class="skills-carousel carousel"> 
+        <div class="skill-item">
+          <img src="https://img.icons8.com/?size=100&id=39292&format=png&color=000000" alt="Butler - Jenkins logo">
+          <h5>Jenkins</h5>
+        </div>
+        <div class="skill-item">
+          <img src="https://img.icons8.com/?size=100&id=cdYUlRaag9G9&format=png&color=000000" alt="Whale with boxes on top of it">
+          <h5>Docker</h5>
+        </div>
+        <div class="skill-item">
+          <img src="https://img.icons8.com/?size=100&id=cvzmaEA4kC0o&format=png&color=000000" >
+          <h5>Kubernetes</h5>
+        </div>
+        <div class="skill-item">
+          <img src="https://helm.sh/img/helm.svg" alt="Helm logo">
+          <h5>Helm</h5>
+        </div>
+        <div class="skill-item">
+          <img src="https://img.icons8.com/?size=100&id=20906&format=png&color=000000" alt="Git logo">
+          <h5>Git</h5>
+        </div>
+        <div class="skill-item">
+          <img src="https://img.icons8.com/?size=100&id=WHRLQdbEXQ16&format=png&color=000000" alt="Google cloud">
+          <h5>GCP</h5>
+        </div>
+        <div class="skill-item">
+          <img src="https://img.icons8.com/?size=100&id=49188&format=png&color=000000" alt="Splunk">
+          <h5>Splunk</h5>
+        </div>
+      </div>
+
+      <h4>Others</h4>
+      <div class="skills-carousel carousel">
+        <div class="skill-item">
+          <img src="https://www.rancher.com/assets/img/logos/rancher-logo-cow-blue.svg" alt="Rancher">
+          <h5>Rancher</h5>
+        </div>
+        <div class="skill-item">
+          <img src="https://img.icons8.com/?size=100&id=uVERmCBZZACL&format=png&color=000000" alt="Logo with N">
+          <h5>Notion</h5>
+        </div>
+        <div class="skill-item">
+          <img src="https://img.icons8.com/?size=100&id=oROcPah5ues6&format=png&color=000000" alt="A diamond symbol">
+          <h5>Jira</h5>
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="section">
+      <h3 class="section-head">featured projects</h3>
+      <div class="project-carousel carousel">
+        <div class="project-item">
+          <h5>Hybrid Quantum Recommendation System</h5>
+          <a href="https://github.com/jolynt24/QRS/tree/main"><i class="fa-brands fa-github"></i></a>
+          <div class="project-desc">
+            <p>The movie recommendation system leverages data from MovieLens and utilizes collaborative filtering techniques. To enhance accuracy, one computational step employs quantum calculation, resulting in a 60% improvement in recommendation efficiency.</p>
+          </div>
+          <div class="project-tech-stack">
+            <img src="https://img.icons8.com/?size=100&id=13441&format=png&color=000000" alt="Python">
+            <img src="https://img.icons8.com/?size=100&id=n3QRpDA7KZ7P&format=png&color=000000" alt="TensorFlow">
+            <img src="https://img.icons8.com/?size=100&id=aR9CXyMagKIS&format=png&color=000000" alt="Numpy">
+            <img src="https://img.icons8.com/?size=100&id=lOqoeP2Zy02f&format=png&color=000000" alt="Google Collab">
+          </div>
+        </div>
+
+        <div class="project-item">
+          <h5>PROJECT-NAME</h5>
+          <div class="project-desc">
+            <p>Pop in a short description here</p>
+          </div>
+          <a href="link-to-github"><i class="fa-brands fa-github"></i></a>
+          <a href="link-to-demo"><i class="fa-solid fa-link"></i></a>
+        </div>
+
+        <div class="project-item">
+          <h5>PROJECT-NAME</h5>
+          <div class="project-desc">
+            <p>Pop in a short description here</p>
+          </div>
+          <a href="link-to-github"><i class="fa-brands fa-github"></i></a>
+          <a href="link-to-demo"><i class="fa-solid fa-link"></i></a>
+        </div>
+
+        <div class="project-item project-item-github">
+          <i class="fa-brands fa-square-github"></i>
+          <p>For more projects, visit my <a href="https://github.com/jolynt24">GitHub</a> profile!</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="section">
+      <h3 class="section-head">professional timeline</h3>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <h4 class="timeline-date"> Sep 2024 </h4>
+          <div class="timeline-desc">
+            <h4>DevOps Engineer</h4>
+            <p>Lloyds Banking Group</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <h4 class="timeline-date"> Sep 2022 </h4>
+          <div class="timeline-desc">
+            <h4>Technology Engineering Graduate</h4>
+            <p>Lloyds Banking Group</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <h4 class="timeline-date"> Oct 2021 </h4>
+          <div class="timeline-desc">
+            <h4> MSc Advanced Computer Science with Reserach </h4>
+            <p>Graduated with Distinction from University of Hertfordshire</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <h4 class="timeline-date"> July 2019 </h4>
+          <div class="timeline-desc">
+            <h4> BE Computer Science & Engineering </h4>
+            <p>Graduated from Visvesvaraya Technological University, Belgaum</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <h4 class="timeline-date"> Aug 2017 </h4>
+          <div class="timeline-desc">
+            <h4> iOS Application Development Intern </h4>
+            <p>Monkfox</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <h4 class="timeline-date"> Jan 2017 </h4>
+          <div class="timeline-desc">
+            <h4> Arduino Embedded Developer Intern </h4>
+            <p>Oscki Labs</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <div id="section">
+    <p id="footer">&copy; 2024 Jolyn. All rights reserved.</p>
+  </div>
+  <script src="js/index.js"></script>
 </body>
 </html>

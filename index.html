@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Website Under Construction</title>
+  <title>Jolyn - Portfolio Website</title>
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="dark-mode">
   <div class="main-content">
     <div id="header">
       <nav>
@@ -14,102 +17,107 @@
           <a href="#about-me">about me</a>
           <a href="#skills">skills</a>
           <a href="#projects">projects</a>
-          <a href="#experience">timeline</a>
+          <a href="#timeline">timeline</a>
         </div>
       </nav>
       <h1 class="title">Jolyn</h1>
       <p class="subtitle"> DevOps Engineer | Solving Problems, Building Solutions </p>
+      <button id="theme-mode">
+        <i class="fa-solid fa-moon dark-icon"></i>
+        <i class="fa-solid fa-sun light-icon"></i>
+      </button>
       <div class="social-icons">
-        <a href="https://www.linkedin.com/in/jolyn-tellis/"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://github.com/jolynt24"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/jolyn-tellis/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/jolynt24" target="_blank"><i class="fa-brands fa-github"></i></a>
       </div>
     </div>
 
-    <section id="section">
+    <section id="about-me">
       <h3 class="section-head">about me</h3>
       <div class="about-me-content">
         <p>I'm a DevOps Engineer, recently completed a 2-year graduate program at one of UK's largest financial services organisation, where I was twice nominated for the Women in Tech Excellence Award. My expertise include Java microservices, Python and building deployment processes using Bash, Jenkins, Docker, Kubernetes, Helm and GCP. I enjoy continous learning, journaling, traveling and hiking.</p>
       </div>
     </section>
 
-    <section id="section">
+    <section id="skills">
       <h3 class="section-head">skills</h3>
+      <div class="skills-container">
+        <h4>Programming/Scripting</h4>
+        <div class="skills-carousel carousel"> 
+          <div class="skill-item">
+            <img src="https://img.icons8.com/?size=100&id=13679&format=png&color=000000" alt="Java icon">
+            <h5>Java</h5>
+          </div>
+          <div class="skill-item">
+            <img src="https://img.icons8.com/?size=100&id=13441&format=png&color=000000" alt="Python icon">
+            <h5>Python</h5>
+          </div>
+          <div class="skill-item">
+            <img src="https://img.icons8.com/?size=100&id=9MJf0ngDwS8z&format=png&color=000000" alt="Bash icon">
+            <h5>Bash</h5>
+          </div>
+          <div class="skill-item">
+            <img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000" alt="HTML 5 icon">
+            <h5>HTML</h5>
+          </div>
+          <div class="skill-item">
+            <img src="https://img.icons8.com/?size=100&id=44442&format=png&color=000000" alt="Beaver image">
+            <h5>Golang</h5>
+          </div>
+        </div>
 
-      <h4>Programming/Scripting</h4>
-      <div class="skills-carousel carousel"> 
-        <div class="skill-item">
-          <img src="https://img.icons8.com/?size=100&id=13679&format=png&color=000000" alt="Java icon">
-          <h5>Java</h5>
+        <h4>Tools</h4>
+        <div class="skills-carousel carousel"> 
+          <div class="skill-item">
+            <img src="https://img.icons8.com/?size=100&id=39292&format=png&color=000000" alt="Butler - Jenkins logo">
+            <h5>Jenkins</h5>
+          </div>
+          <div class="skill-item">
+            <img src="https://img.icons8.com/?size=100&id=cdYUlRaag9G9&format=png&color=000000" alt="Whale with boxes on top of it">
+            <h5>Docker</h5>
+          </div>
+          <div class="skill-item">
+            <img src="https://img.icons8.com/?size=100&id=cvzmaEA4kC0o&format=png&color=000000" >
+            <h5>Kubernetes</h5>
+          </div>
+          <div class="skill-item">
+            <img src="https://helm.sh/img/helm.svg" alt="Helm logo">
+            <h5>Helm</h5>
+          </div>
+          <div class="skill-item">
+            <img src="https://img.icons8.com/?size=100&id=20906&format=png&color=000000" alt="Git logo">
+            <h5>Git</h5>
+          </div>
+          <div class="skill-item">
+            <img src="https://img.icons8.com/?size=100&id=WHRLQdbEXQ16&format=png&color=000000" alt="Google cloud">
+            <h5>GCP</h5>
+          </div>
+          <div class="skill-item">
+            <img src="https://img.icons8.com/?size=100&id=49188&format=png&color=000000" alt="Splunk">
+            <h5>Splunk</h5>
+          </div>
         </div>
-        <div class="skill-item">
-          <img src="https://img.icons8.com/?size=100&id=13441&format=png&color=000000" alt="Python icon">
-          <h5>Python</h5>
-        </div>
-        <div class="skill-item">
-          <img src="https://img.icons8.com/?size=100&id=9MJf0ngDwS8z&format=png&color=000000" alt="Bash icon">
-          <h5>Bash</h5>
-        </div>
-        <div class="skill-item">
-          <img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000" alt="HTML 5 icon">
-          <h5>HTML</h5>
-        </div>
-        <div class="skill-item">
-          <img src="https://img.icons8.com/?size=100&id=44442&format=png&color=000000" alt="Beaver image">
-          <h5>Golang</h5>
-        </div>
-      </div>
 
-      <h4>Tools</h4>
-      <div class="skills-carousel carousel"> 
-        <div class="skill-item">
-          <img src="https://img.icons8.com/?size=100&id=39292&format=png&color=000000" alt="Butler - Jenkins logo">
-          <h5>Jenkins</h5>
-        </div>
-        <div class="skill-item">
-          <img src="https://img.icons8.com/?size=100&id=cdYUlRaag9G9&format=png&color=000000" alt="Whale with boxes on top of it">
-          <h5>Docker</h5>
-        </div>
-        <div class="skill-item">
-          <img src="https://img.icons8.com/?size=100&id=cvzmaEA4kC0o&format=png&color=000000" >
-          <h5>Kubernetes</h5>
-        </div>
-        <div class="skill-item">
-          <img src="https://helm.sh/img/helm.svg" alt="Helm logo">
-          <h5>Helm</h5>
-        </div>
-        <div class="skill-item">
-          <img src="https://img.icons8.com/?size=100&id=20906&format=png&color=000000" alt="Git logo">
-          <h5>Git</h5>
-        </div>
-        <div class="skill-item">
-          <img src="https://img.icons8.com/?size=100&id=WHRLQdbEXQ16&format=png&color=000000" alt="Google cloud">
-          <h5>GCP</h5>
-        </div>
-        <div class="skill-item">
-          <img src="https://img.icons8.com/?size=100&id=49188&format=png&color=000000" alt="Splunk">
-          <h5>Splunk</h5>
-        </div>
-      </div>
-
-      <h4>Others</h4>
-      <div class="skills-carousel carousel">
-        <div class="skill-item">
-          <img src="https://www.rancher.com/assets/img/logos/rancher-logo-cow-blue.svg" alt="Rancher">
-          <h5>Rancher</h5>
-        </div>
-        <div class="skill-item">
-          <img src="https://img.icons8.com/?size=100&id=uVERmCBZZACL&format=png&color=000000" alt="Logo with N">
-          <h5>Notion</h5>
-        </div>
-        <div class="skill-item">
-          <img src="https://img.icons8.com/?size=100&id=oROcPah5ues6&format=png&color=000000" alt="A diamond symbol">
-          <h5>Jira</h5>
+        <h4>Others</h4>
+        <div class="skills-carousel carousel">
+          <div class="skill-item">
+            <img src="https://www.rancher.com/assets/img/logos/rancher-logo-cow-blue.svg" alt="Rancher">
+            <h5>Rancher</h5>
+          </div>
+          <div class="skill-item">
+            <img src="https://img.icons8.com/?size=100&id=uVERmCBZZACL&format=png&color=000000" alt="Logo with N">
+            <h5>Notion</h5>
+          </div>
+          <div class="skill-item">
+            <img src="https://img.icons8.com/?size=100&id=oROcPah5ues6&format=png&color=000000" alt="A diamond symbol">
+            <h5>Jira</h5>
+          </div>
         </div>
       </div>
     </section>
 
     
-    <section id="section">
+    <section id="projects">
       <h3 class="section-head">featured projects</h3>
       <div class="project-carousel carousel">
         <div class="project-item">
@@ -151,9 +159,9 @@
       </div>
     </section>
 
-    <section id="section">
+    <section id="timeline">
       <h3 class="section-head">professional timeline</h3>
-      <div class="timeline">
+      <div class="timeline-container">
 
         <div class="timeline-item">
           <h4 class="timeline-date"> Sep 2024 </h4>
@@ -207,7 +215,7 @@
     </section>
   </div>
 
-  <div id="section">
+  <div>
     <p id="footer">&copy; 2024 Jolyn. All rights reserved.</p>
   </div>
   <script src="js/index.js"></script>

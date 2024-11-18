@@ -1,13 +1,24 @@
-:root {
+:root, body.dark-mode {
   --text-color: #C0C0C0;
   --accent-color: #499844;
   --icon-color: #F8FAFA;
   --bg-color: #0c0c0c;
 }
 
+body.light-mode {
+  --text-color: #072a60;
+  --accent-color: #ff4081;
+  --icon-color: #072a60;
+  --bg-color: #ffffff;
+}
+
 body {
   color: var(--text-color);
   background-color: var(--bg-color);
+  font-family: "Source Code Pro", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 300;
 }
 
 /* Header */
@@ -21,7 +32,7 @@ body {
 
 nav {
   position: fixed;
-  top: 0;
+  top: 1%;
   left: 0;
 }
 
@@ -29,7 +40,7 @@ nav {
   background-color: transparent;
   border: none;
   color: var(--icon-color);
-  font-size: 20px;
+  font-size: 40px;
   cursor: pointer;
 }
 
@@ -42,6 +53,7 @@ nav {
   border: 1px solid var(--accent-color);
   padding: 10px;
   border-radius: 5px;
+  width: 90px;
 }
 
 .nav-menu-option a {
@@ -66,18 +78,47 @@ nav {
   font-size: 60px;
   text-align: center;
   margin: 0;
+  font-weight: 900;
+  font-style: italic;
 }
 
 .subtitle {
   color: var(--text-color);
-  font-size: 12px;
+  font-size: 14px;
+}
+
+#theme-mode {
+  background: none;
+  cursor: pointer;
+  position: absolute;
+  left: 50px;
+  top: 1%;
+  border: 1px solid var(--accent-color);
+  width: 50px;
+}
+
+#theme-mode i {
+  color: var(--icon-color);
+  font-size: 40px;
+}
+
+body.light-mode .dark-icon {
+  display: none;
+}
+
+body.dark-mode .light-icon {
+  display: block;
+}
+
+body.dark-mode .light-icon {
+  display: none;
 }
 
 .social-icons {
   float: right;
   position: absolute;
   top: 0;
-  right:0;
+  right: 1%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -86,8 +127,10 @@ nav {
 .social-icons a {
   display: block;
   color: var(--icon-color);
-  font-size: 25px;
+  font-size: 35px;
   margin: 2px 5px;
+  border: 1px solid var(--accent-color);
+  padding: 10px;
 }
 
 /* Common section */
@@ -97,24 +140,21 @@ nav {
   font-size: 30px;
   text-align: left;
   margin-bottom: 5px;
+  font-weight: 700;
 }
 
-#section {
+section {
   padding: 50px;
   color: var(--text-color);
   text-align: left;
-  display: flex;
-  flex-direction: column;
 }
 
 /* about-me */
 
 .about-me-content p {
-  max-width: 800px;
-  margin: 0 auto;
   font-size: 16px;
   line-height: 1.6;
-  padding: 10px 0;
+  width: 100%;
 }
 
 /* skills */
@@ -196,6 +236,8 @@ nav {
 .project-item a {
   text-decoration: none;
   color: var(--icon-color);
+  border: 1px solid var(--accent-color);
+  padding: 2px;
 }
 
 .project-item-github i {
@@ -217,44 +259,62 @@ nav {
 
 /* timeline */
 
-.timeline {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.timeline-container {
   position: relative;
-  padding-left: 20px;
-  margin-top: 40px;
+  padding: 20px 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline-container::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: var(--bg-color);
+  top:0;
+  bottom: 0;
+  left: 58%;
+  margin-left: -3px;
 }
 
 .timeline-item { 
   display: flex; 
+  justify-content: flex-start;
   align-items: center; 
-  margin-bottom: 40px; 
-  position: relative; 
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit; 
   width: 100%;
 }
 
-.timeline-item:last-child::before { 
-  display: none; 
+.timeline-item::after {
+  content: ''; 
+  position: absolute; 
+  top: 15px; 
+  width: 25px;
+  height: 25px;
+  right: -17px; 
+  border: 4px solid var(--accent-color);
+  border-radius: 50%;
+  z-index: 1;
 }
 
 .timeline-date {
-  flex: 0 0 20%;
+  flex: 1;
   text-align: right;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: lighter;
   color: var(--text-color);
-  position: relative;
+  padding-right: 20px;
 }
 
 .timeline-desc {
-  flex: 1; 
+  flex: 3; 
   background: transparent; 
-  padding: 10px 20px; 
-  border: 1px solid var(--accent-color); 
-  text-align: left; 
-  margin-left: 20px;
+  padding: 20px; 
   position: relative;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .timeline-desc h4 {
@@ -266,21 +326,6 @@ nav {
   font-size: 12px;
   color: var(--text-color);
   margin: 5px 0 0;
-}
-
-.timeline-item::after {
-  content: ''; 
-  position: absolute; 
-  left: 15%; 
-  top: -15%; 
-  width: 0;
-  height: 40px; 
-  border-left: 2px dotted var(--accent-color);
-  transform: translateY(-50%);
-}
-
-.timeline-item:first-child::after {
-  display: none;
 }
 
 /* footer */

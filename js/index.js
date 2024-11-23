@@ -45,9 +45,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }; 
         scrollCarousel(); 
     });
+
+    document.getElementById('theme-mode').addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        document.body.classList.toggle('light-mode');
+
+        const imgNotion = document.getElementById("notion");
+        if (document.body.classList.contains('dark-mode')) {
+            imgNotion.src = 'https://img.icons8.com/?size=100&id=uVERmCBZZACL&format=png&color=ffffff';
+        } else {
+            imgNotion.src = 'https://img.icons8.com/?size=100&id=uVERmCBZZACL&format=png&color=000000';
+        }
+    });
 });
 
-document.getElementById('theme-mode').addEventListener('click', function() {
-    document.body.classList.toggle('dark-mode');
-    document.body.classList.toggle('light-mode')
-});

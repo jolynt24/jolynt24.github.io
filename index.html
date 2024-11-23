@@ -7,6 +7,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SX1GE05SKG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-SX1GE05SKG');
+  </script>
 </head>
 <body class="dark-mode">
   <div class="main-content">
@@ -21,7 +30,7 @@
         </div>
       </nav>
       <h1 class="title">Jolyn</h1>
-      <p class="subtitle"> DevOps Engineer | Solving Problems, Building Solutions </p>
+      <p class="subtitle"> Software Engineer | DevOps | Solving Problems, Building Solutions </p>
       <button id="theme-mode">
         <i class="fa-solid fa-moon dark-icon"></i>
         <i class="fa-solid fa-sun light-icon"></i>
@@ -105,7 +114,7 @@
             <h5>Rancher</h5>
           </div>
           <div class="skill-item">
-            <img src="https://img.icons8.com/?size=100&id=uVERmCBZZACL&format=png&color=000000" alt="Logo with N">
+            <img id="notion" src="https://img.icons8.com/?size=100&id=uVERmCBZZACL&format=png&color=ffffff" alt="Logo with N">
             <h5>Notion</h5>
           </div>
           <div class="skill-item">
@@ -122,7 +131,9 @@
       <div class="project-carousel carousel">
         <div class="project-item">
           <h5>Hybrid Quantum Recommendation System</h5>
-          <a href="https://github.com/jolynt24/QRS/tree/main"><i class="fa-brands fa-github"></i></a>
+          <div class="project-links">
+            <a href="https://github.com/jolynt24/QRS/tree/main" target="_blank"><i class="fa-brands fa-github"></i></a>
+          </div>
           <div class="project-desc">
             <p>The movie recommendation system leverages data from MovieLens and utilizes collaborative filtering techniques. To enhance accuracy, one computational step employs quantum calculation, resulting in a 60% improvement in recommendation efficiency.</p>
           </div>
@@ -135,26 +146,27 @@
         </div>
 
         <div class="project-item">
-          <h5>PROJECT-NAME</h5>
-          <div class="project-desc">
-            <p>Pop in a short description here</p>
+          <h5>Portfolio Website</h5>
+          <div class="project-links">
+            <a href="https://github.com/jolynt24/jolynt24.github.io" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://jolynt24.github.io" target="_blank"><i class="fa-solid fa-link"></i></a>
           </div>
-          <a href="link-to-github"><i class="fa-brands fa-github"></i></a>
-          <a href="link-to-demo"><i class="fa-solid fa-link"></i></a>
-        </div>
-
-        <div class="project-item">
-          <h5>PROJECT-NAME</h5>
           <div class="project-desc">
-            <p>Pop in a short description here</p>
+            <p>A static website designed to highlight my skills, projects and professional journey, hosted using GitHub Pages for realiability and seamless access.</p>
           </div>
-          <a href="link-to-github"><i class="fa-brands fa-github"></i></a>
-          <a href="link-to-demo"><i class="fa-solid fa-link"></i></a>
+          <div class="project-tech-stack">
+            <img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000" alt="HTML5">
+            <img src="https://img.icons8.com/?size=100&id=21278&format=png&color=000000" alt="CSS3">
+            <img src="https://img.icons8.com/?size=100&id=PXTY4q2Sq2lG&format=png&color=000000" alt="JavaScript">
+            <img src="https://img.icons8.com/?size=100&id=52539&format=png&color=000000" alt="GitHub">
+          </div>
         </div>
 
         <div class="project-item project-item-github">
           <i class="fa-brands fa-square-github"></i>
-          <p>For more projects, visit my <a href="https://github.com/jolynt24">GitHub</a> profile!</p>
+          <div class="project-desc">
+            <p>For more projects, visit my <a href="https://github.com/jolynt24">GitHub</a> profile!</p>
+          </div>
         </div>
       </div>
     </section>

@@ -32,7 +32,7 @@ body {
 
 nav {
   position: fixed;
-  top: 1%;
+  top: 1px;
   left: 0;
 }
 
@@ -123,6 +123,7 @@ body.dark-mode .light-icon {
   top: 0;
   right: 1%;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: flex-end;
 }
@@ -323,4 +324,131 @@ section {
 #footer {
   font-size: 10px;
   text-align: center;
+}
+
+/* adjust contents for different media */
+
+@media screen and (max-width: 600px) {
+
+  /* general section */
+
+  section {
+    padding: 20px;
+  }
+
+  .section-head {
+    font-size: 20px;
+  }
+
+  /* header */
+
+  #header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-btn {
+    font-size: 27px;
+  }
+
+  #theme-mode {
+    position: absolute;
+    left: 35px;
+    top: 2px;
+    width: 35px;
+  }
+
+  #theme-mode i {
+    font-size: 25px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+
+  .social-icons {
+    position: static;
+    margin-top: 10px;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .social-icons a {
+    font-size: 25px;
+    margin: 0 5px;
+  }
+
+  /* about-me */
+
+  .about-me-content p {
+    font-size: 14px;
+  }
+
+  /* skills */
+
+  #section h4 {
+    font-size: 14px;
+  }
+
+  .skill-item {
+    margin: 5px;
+    min-width: 50px;
+    padding: 10px;
+  }
+
+  .skill-item img {
+    width: 25px;
+    height: auto;
+  }
+
+  .skill-item h5 {
+    font-size: 10px;
+  }
+
+  /* projects */
+
+  .project-item {
+    width: 50%;
+    padding: 5px;
+  }
+
+  .project-item h5 {
+    font-size: 14px;
+  }
+
+  .project-desc {
+    margin: 5px 0;
+  }
+
+  .project-links {
+    margin: 5px 0;
+  }
+
+  .project-item-github i {
+    font-size: 40px;
+  }
+
+  .project-tech-stack {
+    margin: 5px 0;
+  }
+
+  .project-tech-stack img {
+    width: 15px;
+    height: auto;
+  }
+
+  /* timeline */
+
+  .timeline-date {
+    font-size: 12px
+  }
+
+  .timeline-desc h4 {
+    font-size: 14px;
+  }
+
+  .timeline-desc p {
+    font-size: 10px;
+  }
 }

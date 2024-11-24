@@ -317,6 +317,7 @@ section {
 
 .timeline-desc p {
   margin: 2px 1px;
+  font-size: 12px;
 }
 
 /* footer */
@@ -353,9 +354,9 @@ section {
 
   #theme-mode {
     position: absolute;
-    left: 35px;
-    top: 2px;
-    width: 35px;
+    left: 45px;
+    top: 1px;
+    width: 30px;
   }
 
   #theme-mode i {

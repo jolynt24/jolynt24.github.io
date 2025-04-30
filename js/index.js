@@ -1,13 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const navBtn = document.querySelector('.nav-btn');
+    console.log('DOM loaded'); // Debug
+
+    console.log('Attempting to find theme button...');
+    const themeButtonTest = document.getElementById('theme-mode');
+    console.log('Theme button found?', themeButtonTest ? 'Yes' : 'No');
+
+    if (themeButtonTest) {
+        console.log('Button position:', {
+            top: themeButtonTest.getBoundingClientRect().top,
+            right: themeButtonTest.getBoundingClientRect().right
+        });
+        console.log('Button style:', {
+            display: window.getComputedStyle(themeButtonTest).display,
+            visibility: window.getComputedStyle(themeButtonTest).visibility,
+            opacity: window.getComputedStyle(themeButtonTest).opacity,
+            zIndex: window.getComputedStyle(themeButtonTest).zIndex
+        });
+    }
     const navMenuOption = document.querySelector('.nav-menu-option');
-
-    navBtn.addEventListener('click', () => {
-        const isExpanded = navBtn.getAttribute('aria-expanded') === 'true' || false;
-        navBtn.setAttribute('aria-expanded', !isExpanded);
-        navMenuOption.classList.toggle('show');
-    });
-
     const carousels = document.querySelectorAll('.carousel'); 
     let scrollSpeed = 2;  
 
@@ -46,16 +56,41 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollCarousel(); 
     });
 
-    document.getElementById('theme-mode').addEventListener('click', function() {
+    const themeButton = document.getElementById('theme-mode');
+    if (!themeButton) {
+        console.error('Theme button not found');
+        return;
+    }
+    
+    console.log('Theme button found');
+    
+    themeButton.addEventListener('click', function() {
+        console.log('Theme button clicked');
+        
+        // Directly toggle the classes without checking
         document.body.classList.toggle('dark-mode');
         document.body.classList.toggle('light-mode');
-
+        
+        // Log the current mode for debugging
+        const currentMode = document.body.classList.contains('dark-mode') ? 'dark-mode' : 'light-mode';
+        console.log('Current mode:', currentMode);
+        
+        // Update Notion icon if needed
         const imgNotion = document.getElementById("notion");
-        if (document.body.classList.contains('dark-mode')) {
-            imgNotion.src = 'https://img.icons8.com/?size=100&id=uVERmCBZZACL&format=png&color=ffffff';
-        } else {
-            imgNotion.src = 'https://img.icons8.com/?size=100&id=uVERmCBZZACL&format=png&color=000000';
+        if (imgNotion) {
+            imgNotion.src = document.body.classList.contains('dark-mode')
+                ? 'https://img.icons8.com/?size=100&id=uVERmCBZZACL&format=png&color=ffffff'
+                : 'https://img.icons8.com/?size=100&id=uVERmCBZZACL&format=png&color=000000';
         }
     });
+    
+    // Clean up any double initialization
+    const existingButtons = document.querySelectorAll('#theme-mode');
+    if (existingButtons.length > 1) {
+        console.warn('Multiple theme buttons found, cleaning up duplicates');
+        for (let i = 1; i < existingButtons.length; i++) {
+            existingButtons[i].remove();
+        }
+    }
 });
 

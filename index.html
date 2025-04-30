@@ -19,29 +19,37 @@
   </script>
 </head>
 <body class="dark-mode">
-  <div class="main-content">
-    <div id="header">
-      <nav>
-        <button class="nav-btn" aria-expanded="false"><i class="fa-solid fa-square-caret-down"></i></button>
-        <div class="nav-menu-option">
-          <a href="#about-me">about me</a>
-          <a href="#skills">skills</a>
-          <a href="#projects">projects</a>
-          <a href="#timeline">timeline</a>
-        </div>
-      </nav>
+  <nav class="side-nav">
+    <div class="nav-header">
+      <!-- Add profile picture here -->
+      <div class="profile-pic">
+        <img src="img/notion-face.png" alt="Jolyn's Profile Picture">
+      </div>
       <h1 class="title">Jolyn</h1>
-      <p class="subtitle"> Software Engineer | DevOps | Solving Problems, Building Solutions </p>
-      <button id="theme-mode">
-        <i class="fa-solid fa-moon dark-icon"></i>
-        <i class="fa-solid fa-sun light-icon"></i>
-      </button>
+      <p class="subtitle">Software Engineer | DevOps</p>
       <div class="social-icons">
-        <a href="https://www.linkedin.com/in/jolyn-tellis/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://github.com/jolynt24" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/jolyn-tellis/" target="_blank" aria-label="LinkedIn Profile">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/jolynt24" target="_blank" aria-label="GitHub Profile">
+          <i class="fa-brands fa-github"></i>
+        </a>
       </div>
     </div>
+    <ul class="nav-links">
+      <li><a href="#about-me">about me</a></li>
+      <li><a href="#skills">skills</a></li>
+      <li><a href="#projects">projects</a></li>
+      <li><a href="#timeline">timeline</a></li>
+    </ul>
+  </nav>
 
+  <button id="theme-mode">
+    <i class="fa-solid fa-moon dark-icon"></i>
+    <i class="fa-solid fa-sun light-icon"></i>
+  </button>
+
+  <main class="main-content">
     <section id="about-me">
       <h3 class="section-head">about me</h3>
       <div class="about-me-content">
@@ -62,75 +70,83 @@
     <section id="skills">
       <h3 class="section-head">skills</h3>
       <div class="skills-container">
-        <h4>Programming/Scripting</h4>
-        <div class="skills-carousel carousel"> 
-          <div class="skill-item">
-            <img src="https://img.icons8.com/?size=100&id=13679&format=png&color=000000" alt="Java icon">
-            <h5>Java</h5>
+        <div class="skills-categories">
+          <div class="skills-category">
+            <h4>Programming</h4>
+            <div class="skills-grid">
+              <div class="skill-item">
+                <img src="https://img.icons8.com/?size=100&id=13679&format=png&color=000000" alt="Java">
+                <span>Java</span>
+              </div>
+              <div class="skill-item">
+                <img src="https://img.icons8.com/?size=100&id=13441&format=png&color=000000" alt="Python">
+                <span>Python</span>
+              </div>
+              <div class="skill-item">
+                <img src="https://img.icons8.com/?size=100&id=9MJf0ngDwS8z&format=png&color=000000" alt="Bash">
+                <span>Bash</span>
+              </div>
+              <div class="skill-item">
+                <img src="https://img.icons8.com/?size=100&id=44442&format=png&color=000000" alt="Golang">
+                <span>Golang</span>
+              </div>
+              <div class="skill-item">
+                <img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000" alt="HTML">
+                <span>HTML/CSS</span>
+              </div>
+            </div>
           </div>
-          <div class="skill-item">
-            <img src="https://img.icons8.com/?size=100&id=13441&format=png&color=000000" alt="Python icon">
-            <h5>Python</h5>
+          
+          <div class="skills-category">
+            <h4>DevOps & Tools</h4>
+            <div class="skills-grid">
+              <div class="skill-item">
+                <img src="https://img.icons8.com/?size=100&id=39292&format=png&color=000000" alt="Jenkins">
+                <span>Jenkins</span>
+              </div>
+              <div class="skill-item">
+                <img src="https://img.icons8.com/?size=100&id=cdYUlRaag9G9&format=png&color=000000" alt="Docker">
+                <span>Docker</span>
+              </div>
+              <div class="skill-item">
+                <img src="https://img.icons8.com/?size=100&id=cvzmaEA4kC0o&format=png&color=000000" alt="Kubernetes">
+                <span>Kubernetes</span>
+              </div>
+              <div class="skill-item">
+                <img src="https://helm.sh/img/helm.svg" alt="Helm">
+                <span>Helm</span>
+              </div>
+              <div class="skill-item">
+                <img src="https://img.icons8.com/?size=100&id=20906&format=png&color=000000" alt="Git">
+                <span>Git</span>
+              </div>
+              <div class="skill-item">
+                <img src="https://img.icons8.com/?size=100&id=WHRLQdbEXQ16&format=png&color=000000" alt="GCP">
+                <span>GCP</span>
+              </div>
+              <div class="skill-item">
+                <img src="https://www.rancher.com/assets/img/logos/rancher-logo-cow-blue.svg" alt="Rancher">
+                <span>Rancher</span>
+              </div>
+              <div class="skill-item">
+                <img src="https://img.icons8.com/?size=100&id=49188&format=png&color=000000" alt="Splunk">
+                <span>Splunk</span>
+              </div>
+            </div>
           </div>
-          <div class="skill-item">
-            <img src="https://img.icons8.com/?size=100&id=9MJf0ngDwS8z&format=png&color=000000" alt="Bash icon">
-            <h5>Bash</h5>
-          </div>
-          <div class="skill-item">
-            <img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000" alt="HTML 5 icon">
-            <h5>HTML</h5>
-          </div>
-          <div class="skill-item">
-            <img src="https://img.icons8.com/?size=100&id=44442&format=png&color=000000" alt="Beaver image">
-            <h5>Golang</h5>
-          </div>
-        </div>
-
-        <h4>Tools</h4>
-        <div class="skills-carousel carousel"> 
-          <div class="skill-item">
-            <img src="https://img.icons8.com/?size=100&id=39292&format=png&color=000000" alt="Butler - Jenkins logo">
-            <h5>Jenkins</h5>
-          </div>
-          <div class="skill-item">
-            <img src="https://img.icons8.com/?size=100&id=cdYUlRaag9G9&format=png&color=000000" alt="Whale with boxes on top of it">
-            <h5>Docker</h5>
-          </div>
-          <div class="skill-item">
-            <img src="https://img.icons8.com/?size=100&id=cvzmaEA4kC0o&format=png&color=000000" >
-            <h5>Kubernetes</h5>
-          </div>
-          <div class="skill-item">
-            <img src="https://helm.sh/img/helm.svg" alt="Helm logo">
-            <h5>Helm</h5>
-          </div>
-          <div class="skill-item">
-            <img src="https://img.icons8.com/?size=100&id=20906&format=png&color=000000" alt="Git logo">
-            <h5>Git</h5>
-          </div>
-          <div class="skill-item">
-            <img src="https://img.icons8.com/?size=100&id=WHRLQdbEXQ16&format=png&color=000000" alt="Google cloud">
-            <h5>GCP</h5>
-          </div>
-          <div class="skill-item">
-            <img src="https://img.icons8.com/?size=100&id=49188&format=png&color=000000" alt="Splunk">
-            <h5>Splunk</h5>
-          </div>
-        </div>
-
-        <h4>Others</h4>
-        <div class="skills-carousel carousel">
-          <div class="skill-item">
-            <img src="https://www.rancher.com/assets/img/logos/rancher-logo-cow-blue.svg" alt="Rancher">
-            <h5>Rancher</h5>
-          </div>
-          <div class="skill-item">
-            <img id="notion" src="https://img.icons8.com/?size=100&id=uVERmCBZZACL&format=png&color=ffffff" alt="Logo with N">
-            <h5>Notion</h5>
-          </div>
-          <div class="skill-item">
-            <img src="https://img.icons8.com/?size=100&id=oROcPah5ues6&format=png&color=000000" alt="A diamond symbol">
-            <h5>Jira</h5>
+          
+          <div class="skills-category">
+            <h4>Other Tools</h4>
+            <div class="skills-grid">
+              <div class="skill-item">
+                <img id="notion" src="https://img.icons8.com/?size=100&id=uVERmCBZZACL&format=png&color=ffffff" alt="Notion">
+                <span>Notion</span>
+              </div>
+              <div class="skill-item">
+                <img src="https://img.icons8.com/?size=100&id=oROcPah5ues6&format=png&color=000000" alt="Jira">
+                <span>Jira</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -138,45 +154,55 @@
     
     <section id="projects">
       <h3 class="section-head">featured projects</h3>
-      <div class="project-carousel carousel">
-        <div class="project-item">
-          <h5>Hybrid Quantum Recommendation System</h5>
-          <div class="project-links">
-            <a href="https://github.com/jolynt24/QRS/tree/main" target="_blank"><i class="fa-brands fa-github"></i></a>
+      <div class="projects-container">
+        <div class="project-card">
+          <div class="project-header">
+            <h4>Hybrid Quantum Recommendation System</h4>
+            <div class="project-links">
+              <a href="https://github.com/jolynt24/QRS/tree/main" target="_blank" aria-label="GitHub Repository">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
           </div>
-          <div class="project-desc">
+          <div class="project-content">
             <p>The movie recommendation system leverages data from MovieLens and utilizes collaborative filtering techniques. To enhance accuracy, one computational step employs quantum calculation, resulting in a 60% improvement in recommendation efficiency.</p>
-          </div>
-          <div class="project-tech-stack">
-            <img src="https://img.icons8.com/?size=100&id=13441&format=png&color=000000" alt="Python">
-            <img src="https://img.icons8.com/?size=100&id=n3QRpDA7KZ7P&format=png&color=000000" alt="TensorFlow">
-            <img src="https://img.icons8.com/?size=100&id=aR9CXyMagKIS&format=png&color=000000" alt="Numpy">
-            <img src="https://img.icons8.com/?size=100&id=lOqoeP2Zy02f&format=png&color=000000" alt="Google Collab">
-          </div>
-        </div>
-
-        <div class="project-item">
-          <h5>Portfolio Website</h5>
-          <div class="project-links">
-            <a href="https://github.com/jolynt24/jolynt24.github.io" target="_blank"><i class="fa-brands fa-github"></i></a>
-            <a href="https://jolynt24.github.io" target="_blank"><i class="fa-solid fa-link"></i></a>
-          </div>
-          <div class="project-desc">
-            <p>A static website designed to highlight my skills, projects and professional journey, hosted using GitHub Pages for realiability and seamless access.</p>
-          </div>
-          <div class="project-tech-stack">
-            <img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000" alt="HTML5">
-            <img src="https://img.icons8.com/?size=100&id=21278&format=png&color=000000" alt="CSS3">
-            <img src="https://img.icons8.com/?size=100&id=PXTY4q2Sq2lG&format=png&color=000000" alt="JavaScript">
-            <img src="https://img.icons8.com/?size=100&id=52539&format=png&color=000000" alt="GitHub">
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">TensorFlow</span>
+              <span class="tech-tag">NumPy</span>
+              <span class="tech-tag">Google Colab</span>
+            </div>
           </div>
         </div>
 
-        <div class="project-item project-item-github">
-          <i class="fa-brands fa-square-github"></i>
-          <div class="project-desc">
-            <p>For more projects, visit my <a href="https://github.com/jolynt24">GitHub</a> profile!</p>
+        <div class="project-card">
+          <div class="project-header">
+            <h4>Portfolio Website</h4>
+            <div class="project-links">
+              <a href="https://github.com/jolynt24/jolynt24.github.io" target="_blank" aria-label="GitHub Repository">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="https://jolynt24.github.io" target="_blank" aria-label="Live Website">
+                <i class="fa-solid fa-link"></i>
+              </a>
+            </div>
           </div>
+          <div class="project-content">
+            <p>A static website designed to highlight my skills, projects and professional journey, hosted using GitHub Pages for reliability and seamless access.</p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">GitHub Pages</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card more-projects">
+          <a href="https://github.com/jolynt24" target="_blank">
+            <i class="fa-brands fa-square-github"></i>
+            <p>More projects on GitHub</p>
+          </a>
         </div>
       </div>
     </section>
@@ -186,59 +212,89 @@
       <div class="timeline-container">
 
         <div class="timeline-item">
-          <h4 class="timeline-date"> Sep 2024 </h4>
-          <div class="timeline-desc">
-            <h4>DevOps Engineer</h4>
-            <p>Lloyds Banking Group, London, UK</p>
+          <div class="timeline-marker">
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
+          <div class="timeline-content">
+            <h4 class="timeline-date">Sep 2024</h4>
+            <div class="timeline-desc">
+              <h4>DevOps Engineer</h4>
+              <p>Lloyds Banking Group, London, UK</p>
+            </div>
           </div>
         </div>
 
         <div class="timeline-item">
-          <h4 class="timeline-date"> Sep 2022 </h4>
-          <div class="timeline-desc">
-            <h4>Technology Engineering Graduate</h4>
-            <p>Lloyds Banking Group, London, UK</p>
+          <div class="timeline-marker">
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
+          <div class="timeline-content">
+            <h4 class="timeline-date">Sep 2022</h4>
+            <div class="timeline-desc">
+              <h4>Technology Engineering Graduate</h4>
+              <p>Lloyds Banking Group, London, UK</p>
+            </div>
           </div>
         </div>
 
         <div class="timeline-item">
-          <h4 class="timeline-date"> Oct 2021 </h4>
-          <div class="timeline-desc">
-            <h4> MSc Advanced Computer Science with Reserach </h4>
-            <p>University of Hertfordshire, Hatfield, UK</p>
+          <div class="timeline-marker">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <div class="timeline-content">
+            <h4 class="timeline-date">Oct 2021</h4>
+            <div class="timeline-desc">
+              <h4>MSc Advanced Computer Science with Research</h4>
+              <p>University of Hertfordshire, Hatfield, UK</p>
+            </div>
           </div>
         </div>
 
         <div class="timeline-item">
-          <h4 class="timeline-date"> July 2019 </h4>
-          <div class="timeline-desc">
-            <h4> BE Computer Science & Engineering </h4>
-            <p>Visvesvaraya Technological University, Belgaum, IN</p>
+          <div class="timeline-marker">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <div class="timeline-content">
+            <h4 class="timeline-date">July 2019</h4>
+            <div class="timeline-desc">
+              <h4>BE Computer Science & Engineering</h4>
+              <p>Visvesvaraya Technological University, Belgaum, IN</p>
+            </div>
           </div>
         </div>
 
         <div class="timeline-item">
-          <h4 class="timeline-date"> Aug 2017 </h4>
-          <div class="timeline-desc">
-            <h4> iOS Application Development Intern</h4>
-            <p>Monkfox, Bangalore, IN</p>
+          <div class="timeline-marker">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <div class="timeline-content">
+            <h4 class="timeline-date">Aug 2017</h4>
+            <div class="timeline-desc">
+              <h4>iOS Application Development Intern</h4>
+              <p>Monkfox, Bangalore, IN</p>
+            </div>
           </div>
         </div>
 
         <div class="timeline-item">
-          <h4 class="timeline-date"> Jan 2017 </h4>
-          <div class="timeline-desc">
-            <h4> Arduino Embedded Developer Intern </h4>
-            <p>Oscki Labs, Bangalore, IN</p>
+          <div class="timeline-marker">
+            <i class="fa-solid fa-microchip"></i>
+          </div>
+          <div class="timeline-content">
+            <h4 class="timeline-date">Jan 2017</h4>
+            <div class="timeline-desc">
+              <h4>Arduino Embedded Developer Intern</h4>
+              <p>Oscki Labs, Bangalore, IN</p>
+            </div>
           </div>
         </div>
 
       </div>
     </section>
-  </div>
+  </main>
 
   <div>
-    <p id="footer">&copy; 2024 Jolyn. All rights reserved.</p>
+    <p id="footer">&copy; 2025 All rights reserved</p>
   </div>
   <script src="js/index.js"></script>
 </body>

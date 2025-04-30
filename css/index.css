@@ -3,6 +3,7 @@
   --accent-color: #499844;
   --icon-color: #F8FAFA;
   --bg-color: #0c0c0c;
+  --accent-color-rgb: 0, 255, 127;
 }
 
 body.light-mode {
@@ -10,15 +11,88 @@ body.light-mode {
   --accent-color: #ff4081;
   --icon-color: #072a60;
   --bg-color: #ffffff;
+  --accent-color-rgb: 46, 139, 87;
 }
 
 body {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
   color: var(--text-color);
   background-color: var(--bg-color);
   font-family: "Source Code Pro", monospace;
   font-optical-sizing: auto;
   font-style: normal;
   font-weight: 300;
+  flex-direction: column;
+}
+
+/* Add after the body selector */
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  margin: 0;
+}
+
+.side-nav {
+  position: fixed;
+  width: 250px;
+  height: 100vh;
+  background-color: var(--bg-color);
+  border-right: 1px solid var(--accent-color);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.nav-header {
+  text-align: center;
+}
+
+.nav-header .title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.nav-header .subtitle {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  margin: 1rem 0;
+}
+
+.nav-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  display: block;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.nav-links a:hover {
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+}
+
+.main-content {
+  margin-left: 250px;
+  padding: 2rem;
+  flex: 1;
+  max-width: calc(100% - 250px);
+  overflow-y: auto;
+  flex: 1 0 auto;
 }
 
 /* Header */
@@ -34,14 +108,6 @@ nav {
   position: fixed;
   top: 1px;
   left: 0;
-}
-
-.nav-btn {
-  background-color: transparent;
-  border: none;
-  color: var(--icon-color);
-  font-size: 40px;
-  cursor: pointer;
 }
 
 .nav-menu-option {
@@ -90,51 +156,94 @@ nav {
   text-align: center;
 }
 
+/* Fix the theme button styling */
 #theme-mode {
-  background: none;
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--accent-color);
   cursor: pointer;
-  position: absolute;
-  left: 50px;
-  top: 1%;
-  border: 1px solid var(--accent-color);
-  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; /* Ensure it's above other elements */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 }
 
+/* Make sure icons are visible */
 #theme-mode i {
-  color: var(--icon-color);
-  font-size: 40px;
+  font-size: 1.5rem;
+  color: var(--bg-color);
+}
+
+/* Fix light/dark mode icon visibility */
+body.dark-mode .dark-icon {
+  display: block;
+}
+
+body.dark-mode .light-icon {
+  display: none;
 }
 
 body.light-mode .dark-icon {
   display: none;
 }
 
-body.dark-mode .light-icon {
+body.light-mode .light-icon {
   display: block;
+}
+
+/* Fix the icon visibility styles */
+body.light-mode .dark-icon {
+  display: none;
+}
+
+body.light-mode .light-icon {
+  display: inline-block;
+}
+
+body.dark-mode .dark-icon {
+  display: inline-block;
 }
 
 body.dark-mode .light-icon {
   display: none;
 }
 
+/* Replace the existing social-icons styles with these */
 .social-icons {
-  float: right;
-  position: absolute;
-  top: 0;
-  right: 1%;
   display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
   justify-content: center;
-  flex-direction: column;
-  align-items: flex-end;
 }
 
 .social-icons a {
-  display: block;
-  color: var(--icon-color);
-  font-size: 35px;
-  margin: 2px 5px;
-  border: 1px solid var(--accent-color);
-  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 8px;
+  background-color: var(--accent-color);  /* Use theme accent color instead of fixed green */
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(var(--accent-color), 0.3);
+}
+
+/* Fix the social icons CSS - remove the space between var and parenthesis */
+.social-icons i {
+  font-size: 1.5rem;
+  color: var(--bg-color);  /* Fixed: removed space between var and parenthesis */
 }
 
 /* Common section */
@@ -197,6 +306,107 @@ section {
   margin: 4px 0 2px;
   color: var(--text-color);
   font-size: 14px;
+}
+
+/* Refactored skills section */
+.skills-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.skills-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.skills-category h4 {
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+  font-size: 1.1rem;
+  border-bottom: 1px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+}
+
+/* Update skills grid spacing */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 1.5rem; /* Increased gap between items */
+  width: 100%;
+  overflow: visible;
+  margin-bottom: 1rem; /* Add bottom margin to each grid */
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  transition: transform 0.3s ease;
+  min-height: 80px;
+  padding: 0.5rem; /* Add padding around items */
+  border-radius: 8px; /* Rounded corners for better look */
+}
+
+.skill-item:hover {
+  transform: translateY(-5px);
+}
+
+.skill-item img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.skill-item span {
+  font-size: 0.85rem;
+  color: var(--text-color);
+  word-break: break-word;
+  max-width: 100%;
+  white-space: normal;
+}
+
+/* For Notion icon specifically */
+#notion {
+}
+
+/* For Notion icon specifically */
+#notion {
+  filter: none;
+}
+
+@media screen and (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 1.2rem; /* Slightly smaller gap but still spacious */
+  }
+  
+  .skill-item img {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .skill-item span {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 1rem; /* Maintain good spacing on small screens */
+  }
+  
+  .skill-item img {
+    width: 25px;
+    height: 25px;
+  }
 }
 
 /* projects */
@@ -281,43 +491,329 @@ section {
   height: auto;
 }
 
-/* timeline */
+/* Improved projects section */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
 
-.timeline-container {
+.project-card {
+  border: 2px solid var(--accent-color);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  border-left: 1px dotted var(--accent-color);
-  padding-left: 5px;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project-header {
+  border-bottom: 1px solid var(--accent-color);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-header h4 {
+  margin: 0;
+  color: var(--accent-color);
+  font-size: 1.1rem;
+}
+
+.project-links {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.project-links a {
+  color: var(--text-color);
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.project-links a:hover {
+  color: var(--accent-color);
+}
+
+.project-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.project-content p {
+  margin-top: 0;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.project-tech {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-tag {
+  background-color: rgba(var(--accent-color-rgb), 0.2);
+  color: var(--text-color);
+  padding: 0.3rem 0.6rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  display: inline-block;
+}
+
+/* Responsive tech tags that change with theme */
+.tech-tag {
+  padding: 0.3rem 0.6rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+/* Dark mode styling for tech tags - Greenish */
+body.dark-mode .tech-tag {
+  background-color: rgba(73, 152, 68, 0.2);
+  color: #C0C0C0;
+  border: 1px solid rgba(73, 152, 68, 0.4);
+}
+
+body.dark-mode .tech-tag:hover {
+  background-color: rgba(73, 152, 68, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Light mode styling for tech tags - Pinkish */
+body.light-mode .tech-tag {
+  background-color: rgba(255, 64, 129, 0.1);
+  color: #072a60;
+  border: 1px solid rgba(255, 64, 129, 0.3);
+}
+
+body.light-mode .tech-tag:hover {
+  background-color: rgba(255, 64, 129, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure the project content has proper spacing */
+.project-tech {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.more-projects {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.more-projects a {
+  color: var(--text-color);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  width: 100%;
+  height: 100%;
+}
+
+.more-projects i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+}
+
+/* Replace existing timeline styles with these */
+.timeline-container {
+  position: relative;
+  margin-left: 2rem;
+  padding: 1rem 0 1rem 3rem;
+}
+
+/* Vertical line connecting all icons */
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 0.9rem;  /* Center with icons */
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: var(--accent-color);
+  z-index: 1;
 }
 
 .timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
   display: flex;
-  flex-direction: row;
+}
+
+/* Horizontal line connecting icon to content */
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  left: -1.7rem;
+  top: 1rem;
+  width: 1.7rem;
+  height: 2px;
+  background: var(--accent-color);
+  z-index: 1;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -3rem;
+  top: 0;
+  width: 2rem;
+  height: 2rem;
+  background: var(--bg-color);
+  border: 2px solid var(--accent-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.timeline-marker i {
+  color: var(--accent-color);
+  font-size: 0.9rem;
+}
+
+.timeline-content {
+  flex-grow: 1;
 }
 
 .timeline-date {
-  width: 120px;
-  border-top: 1px solid var(--accent-color);
-  font-weight: lighter;
+  font-size: 0.9rem;
+  font-weight: 600;
   color: var(--accent-color);
+  margin: 0 0 0.5rem 0;
 }
 
 .timeline-desc {
   border: 1px solid var(--accent-color);
-  padding: 10px;
-  margin: 5px 0;
-  border-radius: 15px;
-  width: 60%;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  background-color: var(--bg-color);
+}
+
+.timeline-desc:hover {
+  transform: translateX(10px);
 }
 
 .timeline-desc h4 {
-  margin: 1px 1px;
+  margin: 0 0 0.5rem 0;
   font-size: 1rem;
+  color: var(--text-color);
 }
 
 .timeline-desc p {
-  margin: 2px 1px;
-  font-size: 12px;
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-color); /* Fixed space between var and parenthesis */
+  opacity: 0.8;
+}
+
+/* Hover effect for the entire timeline item */
+.timeline-item:hover .timeline-marker {
+  border-color: var(--text-color);
+  box-shadow: 0 0 8px rgba(var(--accent-color), 0.5);
+}
+
+.timeline-item:hover .timeline-marker i {
+  color: var(--text-color);
+}
+
+.timeline-item:hover::after {
+  background-color: var(--text-color);
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .timeline-container {
+    margin-left: 1rem;
+    padding-left: 2.5rem;
+  }
+  
+  .timeline-container::before {
+    left: 0.65rem;
+  }
+  
+  .timeline-marker {
+    left: -2.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .timeline-marker i {
+    font-size: 0.8rem;
+  }
+  
+  .timeline-item::after {
+    left: -1.4rem;
+    width: 1.4rem;
+  }
+  
+  .timeline-desc {
+    padding: 0.6rem 0.8rem;
+  }
+  
+  .timeline-desc h4 {
+    font-size: 0.9rem;
+  }
+  
+  .timeline-desc p {
+    font-size: 0.8rem;
+  }
+
+  .projects-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .timeline-container {
+    padding-left: 2rem;
+  }
+  
+  .timeline-container::before {
+    left: 0.5rem;
+  }
+  
+  .timeline-marker {
+    left: -2rem;
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  
+  .timeline-marker i {
+    font-size: 0.7rem;
+  }
+  
+  .timeline-item::after {
+    left: -1.2rem;
+    width: 1.2rem;
+  }
 }
 
 /* footer */
@@ -325,6 +821,13 @@ section {
 #footer {
   font-size: 10px;
   text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  width: 100%;
+  position: relative;
+  bottom: 0;
 }
 
 /* adjust contents for different media */
@@ -348,19 +851,15 @@ section {
     align-items: center;
   }
 
-  .nav-btn {
-    font-size: 27px;
-  }
-
   #theme-mode {
-    position: absolute;
-    left: 45px;
-    top: 1px;
-    width: 30px;
+    top: 1rem;
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 
   #theme-mode i {
-    font-size: 25px;
+    font-size: 1.2rem;
   }
 
   .subtitle {
@@ -451,5 +950,90 @@ section {
 
   .timeline-desc p {
     font-size: 10px;
+  }
+
+  body {
+    flex-direction: column;
+  }
+
+  .side-nav {
+    position: static;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--accent-color);
+  }
+
+  .main-content {
+    margin-left: 0;
+    max-width: 100%;
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .side-nav {
+    width: 200px;
+    padding: 1rem;
+  }
+
+  .main-content {
+    margin-left: 200px;
+    max-width: calc(100% - 200px);
+  }
+
+  .nav-header .title {
+    font-size: 2rem;
+  }
+}
+
+/* Make sure the page has a minimum height to push footer down */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Footer container */
+body > div:last-of-type {
+  flex-shrink: 0;
+  width: 100%;
+  background-color: var(--bg-color);
+  border-top: 1px solid var(--accent-color);
+}
+
+/* Add profile picture styling */
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  overflow: hidden;
+  border: 3px solid var(--accent-color);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+  transform: scale(1.05);
+}
+
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Adjust responsive styling */
+@media screen and (max-width: 768px) {
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .profile-pic {
+    width: 80px;
+    height: 80px;
   }
 }

@@ -17,45 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             zIndex: window.getComputedStyle(themeButtonTest).zIndex
         });
     }
-    const navMenuOption = document.querySelector('.nav-menu-option');
-    const carousels = document.querySelectorAll('.carousel'); 
-    let scrollSpeed = 2;  
-
-    carousels.forEach(carousel => { 
-        let isHovering = false; 
-        let scrollDirection = ''; 
-        
-        carousel.addEventListener('mousemove', (e) => { 
-            const rect = carousel.getBoundingClientRect(); 
-            const midX = rect.width / 2; 
-
-            if (e.clientX < rect.left + midX / 2) { 
-                scrollDirection = 'left'; 
-            } else if (e.clientX > rect.left + 1.5 * midX) { 
-                scrollDirection = 'right'; 
-            } else { 
-                scrollDirection = ''; 
-            } 
-            isHovering = true; 
-        }); 
-        
-        carousel.addEventListener('mouseleave', () => { 
-            isHovering = false; 
-        }); 
-
-        const scrollCarousel = () => { 
-            if (isHovering) { 
-                if (scrollDirection === 'left' && carousel.scrollLeft > 0) { 
-                    carousel.scrollLeft -= scrollSpeed;
-                } else if (scrollDirection === 'right' && carousel.scrollLeft < carousel.scrollWidth - carousel.clientWidth) { 
-                    carousel.scrollLeft += scrollSpeed; 
-                } 
-            } 
-            requestAnimationFrame(scrollCarousel); 
-        }; 
-        scrollCarousel(); 
-    });
-
+    
     const themeButton = document.getElementById('theme-mode');
     if (!themeButton) {
         console.error('Theme button not found');
@@ -63,26 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     console.log('Theme button found');
-    
-    themeButton.addEventListener('click', function() {
-        console.log('Theme button clicked');
-        
-        // Directly toggle the classes without checking
-        document.body.classList.toggle('dark-mode');
-        document.body.classList.toggle('light-mode');
-        
-        // Log the current mode for debugging
-        const currentMode = document.body.classList.contains('dark-mode') ? 'dark-mode' : 'light-mode';
-        console.log('Current mode:', currentMode);
-        
-        // Update Notion icon if needed
-        const imgNotion = document.getElementById("notion");
-        if (imgNotion) {
-            imgNotion.src = document.body.classList.contains('dark-mode')
-                ? 'https://img.icons8.com/?size=100&id=uVERmCBZZACL&format=png&color=ffffff'
-                : 'https://img.icons8.com/?size=100&id=uVERmCBZZACL&format=png&color=000000';
-        }
-    });
     
     // Clean up any double initialization
     const existingButtons = document.querySelectorAll('#theme-mode');
@@ -92,5 +34,34 @@ document.addEventListener('DOMContentLoaded', () => {
             existingButtons[i].remove();
         }
     }
+
+    // Load saved preference on page load
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        document.body.classList.remove('dark-mode');
+        document.body.classList.add('light-mode');
+    }
 });
+
+// Remove duplicate theme button click handler
+document.addEventListener('click', (e) => {
+  if (e.target.closest('#theme-mode')) {
+    toggleTheme();
+  }
+});
+
+// Add localStorage to remember user's theme preference
+function toggleTheme() {
+  document.body.classList.toggle('dark-mode');
+  document.body.classList.toggle('light-mode');
+  localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+  
+  // Update Notion icon if needed
+  const imgNotion = document.getElementById("notion");
+  if (imgNotion) {
+    imgNotion.src = document.body.classList.contains('dark-mode')
+      ? 'https://img.icons8.com/?size=100&id=uVERmCBZZACL&format=png&color=ffffff'
+      : 'https://img.icons8.com/?size=100&id=uVERmCBZZACL&format=png&color=000000';
+  }
+}
 

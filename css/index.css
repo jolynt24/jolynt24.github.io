@@ -1,9 +1,10 @@
+/* ===== CSS VARIABLES ===== */
 :root, body.dark-mode {
   --text-color: #C0C0C0;
   --accent-color: #499844;
   --icon-color: #F8FAFA;
   --bg-color: #0c0c0c;
-  --accent-color-rgb: 0, 255, 127;
+  --accent-color-rgb: 73, 152, 68;
 }
 
 body.light-mode {
@@ -11,13 +12,19 @@ body.light-mode {
   --accent-color: #ff4081;
   --icon-color: #072a60;
   --bg-color: #ffffff;
-  --accent-color-rgb: 46, 139, 87;
+  --accent-color-rgb: 255, 64, 129;
+}
+
+/* ===== BASE STYLES ===== */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
 }
 
 body {
   display: flex;
-  margin: 0;
-  padding: 0;
   min-height: 100vh;
   color: var(--text-color);
   background-color: var(--bg-color);
@@ -26,15 +33,10 @@ body {
   font-style: normal;
   font-weight: 300;
   flex-direction: column;
+  position: relative;
 }
 
-/* Add after the body selector */
-html {
-  scroll-behavior: smooth;
-  height: 100%;
-  margin: 0;
-}
-
+/* ===== LAYOUT ===== */
 .side-nav {
   position: fixed;
   width: 250px;
@@ -45,8 +47,33 @@ html {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  z-index: 100;
 }
 
+.main-content {
+  margin-left: 250px;
+  padding: 2rem;
+  flex: 1;
+  max-width: calc(100% - 250px);
+  overflow-y: auto;
+  flex: 1 0 auto;
+}
+
+section {
+  padding: 50px;
+  color: var(--text-color);
+  text-align: left;
+}
+
+.section-head {
+  color: var(--accent-color);
+  font-size: 30px;
+  text-align: left;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+/* ===== NAVIGATION ===== */
 .nav-header {
   text-align: center;
 }
@@ -86,13 +113,92 @@ html {
   color: var(--bg-color);
 }
 
-.main-content {
-  margin-left: 250px;
-  padding: 2rem;
-  flex: 1;
-  max-width: calc(100% - 250px);
-  overflow-y: auto;
-  flex: 1 0 auto;
+/* ===== PROFILE IMAGE ===== */
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  overflow: hidden;
+  border: 3px solid var(--accent-color);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+  transform: scale(1.05);
+}
+
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* ===== SOCIAL ICONS ===== */
+.social-icons {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 8px;
+  background-color: var(--accent-color); 
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.social-icons i {
+  font-size: 1.5rem;
+  color: var(--bg-color); 
+}
+
+/* ===== THEME SWITCHER ===== */
+#theme-mode {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--accent-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; /* Ensure it's above other elements */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+#theme-mode i {
+  font-size: 1.5rem;
+  color: var(--bg-color);
+}
+
+/* Theme icon visibility */
+body.dark-mode .dark-icon,
+body.light-mode .light-icon {
+  display: inline-block;
+}
+
+body.dark-mode .light-icon,
+body.light-mode .dark-icon {
+  display: none;
 }
 
 /* Header */
@@ -156,159 +262,14 @@ nav {
   text-align: center;
 }
 
-/* Fix the theme button styling */
-#theme-mode {
-  position: fixed;
-  top: 1.5rem;
-  right: 1.5rem;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  border: none;
-  background-color: var(--accent-color);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999; /* Ensure it's above other elements */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-}
-
-/* Make sure icons are visible */
-#theme-mode i {
-  font-size: 1.5rem;
-  color: var(--bg-color);
-}
-
-/* Fix light/dark mode icon visibility */
-body.dark-mode .dark-icon {
-  display: block;
-}
-
-body.dark-mode .light-icon {
-  display: none;
-}
-
-body.light-mode .dark-icon {
-  display: none;
-}
-
-body.light-mode .light-icon {
-  display: block;
-}
-
-/* Fix the icon visibility styles */
-body.light-mode .dark-icon {
-  display: none;
-}
-
-body.light-mode .light-icon {
-  display: inline-block;
-}
-
-body.dark-mode .dark-icon {
-  display: inline-block;
-}
-
-body.dark-mode .light-icon {
-  display: none;
-}
-
-/* Replace the existing social-icons styles with these */
-.social-icons {
-  display: flex;
-  gap: 1.5rem;
-  margin-top: 2rem;
-  justify-content: center;
-}
-
-.social-icons a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 8px;
-  background-color: var(--accent-color);  /* Use theme accent color instead of fixed green */
-  transition: all 0.3s ease;
-  text-decoration: none;
-}
-
-.social-icons a:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(var(--accent-color), 0.3);
-}
-
-/* Fix the social icons CSS - remove the space between var and parenthesis */
-.social-icons i {
-  font-size: 1.5rem;
-  color: var(--bg-color);  /* Fixed: removed space between var and parenthesis */
-}
-
-/* Common section */
-
-.section-head {
-  color: var(--accent-color);
-  font-size: 30px;
-  text-align: left;
-  margin-bottom: 5px;
-  font-weight: 700;
-}
-
-section {
-  padding: 50px;
-  color: var(--text-color);
-  text-align: left;
-}
-
-/* about-me */
-
+/* ===== ABOUT SECTION ===== */
 .about-me-content p {
   font-size: 16px;
   line-height: 1.6;
   width: 100%;
 }
 
-/* skills */
-
-#section h4 {
-  color: var(--text-color);
-  font-size: 18px;
-  margin-bottom: 0;
-  margin-top: 5px;
-}
-
-.skills-carousel {
-  display: flex;
-  overflow: hidden;
-  position: relative;
-  white-space: nowrap;
-} 
-
-.skill-item {
-  display: inline-block;
-  margin: 10px;
-  min-width: 70px;
-  border: 3px solid var(--text-color);
-  text-align: center;
-  padding: 15px;
-  vertical-align: top;
-  border-radius: 25px;
-}
-
-.skill-item img {
-  width: 40px;
-  height: auto;
-}
-
-.skill-item h5 {
-  margin: 4px 0 2px;
-  color: var(--text-color);
-  font-size: 14px;
-}
-
-/* Refactored skills section */
+/* ===== SKILLS SECTION ===== */
 .skills-container {
   width: 100%;
   max-width: 900px;
@@ -331,14 +292,13 @@ section {
   padding-bottom: 0.5rem;
 }
 
-/* Update skills grid spacing */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-  gap: 1.5rem; /* Increased gap between items */
+  gap: 1.5rem; 
   width: 100%;
   overflow: visible;
-  margin-bottom: 1rem; /* Add bottom margin to each grid */
+  margin-bottom: 1rem; 
 }
 
 .skill-item {
@@ -349,8 +309,8 @@ section {
   text-align: center;
   transition: transform 0.3s ease;
   min-height: 80px;
-  padding: 0.5rem; /* Add padding around items */
-  border-radius: 8px; /* Rounded corners for better look */
+  padding: 0.5rem; 
+  border-radius: 8px; 
 }
 
 .skill-item:hover {
@@ -372,126 +332,7 @@ section {
   white-space: normal;
 }
 
-/* For Notion icon specifically */
-#notion {
-}
-
-/* For Notion icon specifically */
-#notion {
-  filter: none;
-}
-
-@media screen and (max-width: 768px) {
-  .skills-grid {
-    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
-    gap: 1.2rem; /* Slightly smaller gap but still spacious */
-  }
-  
-  .skill-item img {
-    width: 30px;
-    height: 30px;
-  }
-  
-  .skill-item span {
-    font-size: 0.8rem;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .skills-grid {
-    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
-    gap: 1rem; /* Maintain good spacing on small screens */
-  }
-  
-  .skill-item img {
-    width: 25px;
-    height: 25px;
-  }
-}
-
-/* projects */
-
-.project-carousel {
-  display: flex;
-  overflow: hidden;
-  position: relative;
-  white-space: nowrap;
-}
-
-.project-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 10px;
-  width: 40%;
-  height: auto;
-  border: 3px solid var(--accent-color);
-  text-align: center;
-  padding: 10px;
-  border-radius: 15px;
-  box-sizing: border-box;
-  overflow-wrap: break-word;
-}
-
-.project-item h5 {
-  font-size: 18px;
-  color: var (--accent-color);
-  margin-bottom: 5%;
-  margin-top: 0;
-  padding: 0;
-  white-space: normal;
-}
-
-.project-desc {
-  margin: 10px 0;
-  overflow-wrap: break-word;
-
-}
-
-.project-desc p {
-  font-size: 12px;
-  color: var(--text-color);
-  margin: 0;
-  white-space: normal;
-}
-
-.project-links {
-  display: block;
-  margin: 10px 0;
-}
-
-.project-links a {
-  text-decoration: none;
-  color: var(--icon-color);
-}
-
-.project-item a {
-  text-decoration: none;
-  color: var(--icon-color);
-  border: 1px solid var(--accent-color);
-  padding: 2px;
-}
-
-.project-item-github i {
-  font-size: 75px;
-}
-
-.project-item-github p {
-  font-size: 10px;
-}
-
-.project-tech-stack {
-  display: block;
-  margin: 10px 0;
-}
-
-.project-tech-stack img {
-  width: 15px;
-  height: auto;
-}
-
-/* Improved projects section */
+/* ======PROJECTS======= */
 .projects-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -508,11 +349,6 @@ section {
   height: 100%;
   display: flex;
   flex-direction: column;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .project-header {
@@ -565,16 +401,6 @@ section {
 }
 
 .tech-tag {
-  background-color: rgba(var(--accent-color-rgb), 0.2);
-  color: var(--text-color);
-  padding: 0.3rem 0.6rem;
-  border-radius: 1rem;
-  font-size: 0.8rem;
-  display: inline-block;
-}
-
-/* Responsive tech tags that change with theme */
-.tech-tag {
   padding: 0.3rem 0.6rem;
   border-radius: 1rem;
   font-size: 0.8rem;
@@ -608,14 +434,6 @@ body.light-mode .tech-tag:hover {
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Ensure the project content has proper spacing */
-.project-tech {
-  margin-top: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
 .more-projects {
   display: flex;
   align-items: center;
@@ -641,7 +459,7 @@ body.light-mode .tech-tag:hover {
   color: var(--accent-color);
 }
 
-/* Replace existing timeline styles with these */
+/*==========TIMELINE==========*/
 .timeline-container {
   position: relative;
   margin-left: 2rem;
@@ -717,10 +535,6 @@ body.light-mode .tech-tag:hover {
   background-color: var(--bg-color);
 }
 
-.timeline-desc:hover {
-  transform: translateX(10px);
-}
-
 .timeline-desc h4 {
   margin: 0 0 0.5rem 0;
   font-size: 1rem;
@@ -730,11 +544,10 @@ body.light-mode .tech-tag:hover {
 .timeline-desc p {
   margin: 0;
   font-size: 0.9rem;
-  color: var(--text-color); /* Fixed space between var and parenthesis */
+  color: var(--text-color); 
   opacity: 0.8;
 }
 
-/* Hover effect for the entire timeline item */
 .timeline-item:hover .timeline-marker {
   border-color: var(--text-color);
   box-shadow: 0 0 8px rgba(var(--accent-color), 0.5);
@@ -748,72 +561,11 @@ body.light-mode .tech-tag:hover {
   background-color: var(--text-color);
 }
 
-/* Responsive styles */
-@media screen and (max-width: 768px) {
-  .timeline-container {
-    margin-left: 1rem;
-    padding-left: 2.5rem;
-  }
-  
-  .timeline-container::before {
-    left: 0.65rem;
-  }
-  
-  .timeline-marker {
-    left: -2.5rem;
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-  
-  .timeline-marker i {
-    font-size: 0.8rem;
-  }
-  
-  .timeline-item::after {
-    left: -1.4rem;
-    width: 1.4rem;
-  }
-  
-  .timeline-desc {
-    padding: 0.6rem 0.8rem;
-  }
-  
-  .timeline-desc h4 {
-    font-size: 0.9rem;
-  }
-  
-  .timeline-desc p {
-    font-size: 0.8rem;
-  }
-
-  .projects-container {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .timeline-container {
-    padding-left: 2rem;
-  }
-  
-  .timeline-container::before {
-    left: 0.5rem;
-  }
-  
-  .timeline-marker {
-    left: -2rem;
-    width: 1.2rem;
-    height: 1.2rem;
-  }
-  
-  .timeline-marker i {
-    font-size: 0.7rem;
-  }
-  
-  .timeline-item::after {
-    left: -1.2rem;
-    width: 1.2rem;
-  }
+/* Use hardware acceleration for animations */
+.project-card:hover, .skill-item:hover, .timeline-desc:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+  will-change: transform;
 }
 
 /* footer */
@@ -830,11 +582,15 @@ body.light-mode .tech-tag:hover {
   bottom: 0;
 }
 
-/* adjust contents for different media */
+/* Footer container */
+body > div:last-of-type {
+  flex-shrink: 0;
+  width: 100%;
+  background-color: var(--bg-color);
+  border-top: 1px solid var(--accent-color);
+}
 
 @media screen and (max-width: 600px) {
-
-  /* general section */
 
   section {
     padding: 20px;
@@ -969,177 +725,56 @@ body.light-mode .tech-tag:hover {
     max-width: 100%;
     padding: 1rem;
   }
-}
 
-@media screen and (max-width: 768px) {
-  .side-nav {
-    width: 200px;
-    padding: 1rem;
-  }
-
-  .main-content {
-    margin-left: 200px;
-    max-width: calc(100% - 200px);
-  }
-
-  .nav-header .title {
-    font-size: 2rem;
-  }
-}
-
-/* Make sure the page has a minimum height to push footer down */
-html, body {
-  height: 100%;
-  margin: 0;
-}
-
-/* Footer container */
-body > div:last-of-type {
-  flex-shrink: 0;
-  width: 100%;
-  background-color: var(--bg-color);
-  border-top: 1px solid var(--accent-color);
-}
-
-/* Add profile picture styling */
-.profile-pic {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  margin: 0 auto 1rem;
-  overflow: hidden;
-  border: 3px solid var(--accent-color);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-}
-
-.profile-pic:hover {
-  transform: scale(1.05);
-}
-
-.profile-pic img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Adjust responsive styling */
-@media screen and (max-width: 768px) {
-  .profile-pic {
-    width: 100px;
-    height: 100px;
-  }
-}
-
-@media screen and (max-width: 600px) {
   .profile-pic {
     width: 80px;
     height: 80px;
   }
-}
 
-/* Mobile navigation improvements */
-@media screen and (max-width: 768px) {
-  /* Convert fixed sidebar to mobile header */
-  .side-nav {
-    position: relative;
-    width: 100%;
-    height: auto;
-    min-height: auto;
-    border-right: none;
-    border-bottom: 1px solid var(--accent-color);
-    padding: 1rem;
-    box-sizing: border-box;
-    z-index: 100;
-    background-color: var(--bg-color);
+  .timeline-container {
+    padding-left: 2rem;
   }
   
-  /* Rearrange profile section for mobile */
-  .nav-header {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 0.5rem;
+  .timeline-container::before {
+    left: 0.5rem;
   }
   
-  .profile-pic {
-    width: 60px;
-    height: 60px;
-    margin: 0 1rem 0 0;
+  .timeline-marker {
+    left: -2rem;
+    width: 1.2rem;
+    height: 1.2rem;
   }
   
-  .nav-header .title {
-    font-size: 1.8rem;
-    margin: 0;
+  .timeline-marker i {
+    font-size: 0.7rem;
   }
   
-  .nav-header .subtitle {
-    font-size: 0.8rem;
-    margin: 0;
-    width: 100%;
-  }
-  
-  /* Style the navigation links for mobile */
-  .nav-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 1rem;
-    padding: 0;
-  }
-  
-  .nav-links li {
-    margin: 0 0.5rem;
-  }
-  
-  .nav-links a {
-    font-size: 0.9rem;
-    padding: 0.3rem 0.5rem;
-  }
-  
-  /* Position social icons for mobile */
-  .social-icons {
-    position: static;
-    margin-top: 0.5rem;
-    justify-content: center;
-    gap: 1rem;
-  }
-  
-  .social-icons a {
-    width: 2rem;
-    height: 2rem;
-  }
-  
-  .social-icons i {
-    font-size: 1.2rem;
-  }
-  
-  /* Adjust main content to start after the header */
-  .main-content {
-    margin-left: 0;
-    padding: 1rem;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  /* Fix theme button position */
-  #theme-mode {
-    top: 0.7rem;
-    right: 0.7rem;
-    width: 2.2rem;
-    height: 2.2rem;
-    z-index: 101;
-  }
-  
-  #theme-mode i {
-    font-size: 1rem;
+  .timeline-item::after {
+    left: -1.2rem;
+    width: 1.2rem;
   }
 }
 
-/* Additional fixes for very small screens */
+/* Additional fixes specifically for very small screens */
 @media screen and (max-width: 480px) {
+  .main-content {
+    padding: 0.5rem;
+  }
+  
+  section {
+    padding: 1rem 0;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 1rem; 
+  }
+  
+  .skill-item img {
+    width: 25px;
+    height: 25px;
+  }
+
   .nav-links {
     flex-direction: row;
     flex-wrap: wrap;
@@ -1158,25 +793,24 @@ body > div:last-of-type {
   }
 }
 
-/* Fix the section padding and width on mobile */
+/* Ensure proper content width on mobile */
 @media screen and (max-width: 768px) {
-  /* Ensure main content takes full width */
+
   .main-content {
-    margin-left: 0;
-    padding: 1rem;
+    margin-left: 200px;
+    max-width: calc(100% - 200px);
+    padding: 1rem 0;
     width: 100%;
-    max-width: 100%; /* Override the previous max-width setting */
     box-sizing: border-box;
   }
-  
-  /* Fix section padding to be more appropriate for mobile */
+
   section {
-    padding: 1rem 0.5rem;
     width: 100%;
+    padding: 1rem 0.5rem;
     box-sizing: border-box;
+    margin: 0;
   }
   
-  /* Ensure projects container and other grid layouts are full width */
   .projects-container,
   .skills-container {
     width: 100%;
@@ -1200,15 +834,137 @@ body > div:last-of-type {
     padding: 0;
     box-sizing: border-box;
   }
-}
 
-/* Additional fixes specifically for very small screens */
-@media screen and (max-width: 480px) {
-  .main-content {
-    padding: 0.5rem;
+  .profile-pic {
+    width: 60px;
+    height: 60px;
+    margin: 0 1rem 0 0;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 1.2rem; 
   }
   
-  section {
-    padding: 1rem 0;
+  .skill-item img {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .skill-item span {
+    font-size: 0.8rem;
+  }
+  
+  .timeline-container::before {
+    left: 0.65rem;
+  }
+  
+  .timeline-marker {
+    left: -2.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .timeline-marker i {
+    font-size: 0.8rem;
+  }
+  
+  .timeline-item::after {
+    left: -1.4rem;
+    width: 1.4rem;
+  }
+  
+  .timeline-desc {
+    padding: 0.6rem 0.8rem;
+  }
+  
+  .timeline-desc h4 {
+    font-size: 0.9rem;
+  }
+  
+  .timeline-desc p {
+    font-size: 0.8rem;
+  }
+
+  .projects-container {
+    grid-template-columns: 1fr;
+  }
+
+  .side-nav {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--accent-color);
+    padding: 1rem;
+    box-sizing: border-box;
+    z-index: 100;
+    background-color: var(--bg-color);
+  }
+  
+  .nav-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .nav-header .title {
+    font-size: 1.8rem;
+    margin: 0;
+  }
+  
+  .nav-header .subtitle {
+    font-size: 0.8rem;
+    margin: 0;
+    width: 100%;
+  }
+  
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
+    padding: 0;
+  }
+  
+  .nav-links li {
+    margin: 0 0.5rem;
+  }
+  
+  .nav-links a {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.5rem;
+  }
+  
+  .social-icons {
+    position: static;
+    margin-top: 0.5rem;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .social-icons a {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  .social-icons i {
+    font-size: 1.2rem;
+  }
+  
+  #theme-mode {
+    top: 0.7rem;
+    right: 0.7rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    z-index: 101;
+  }
+  
+  #theme-mode i {
+    font-size: 1rem;
   }
 }

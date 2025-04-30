@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" role="document">
 <head>
   <title>Jolyn - Portfolio Website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,23 +7,29 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-SX1GE05SKG"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-SX1GE05SKG');
   </script>
+  <meta charset="UTF-8">
+  <meta name="description" content="Jolyn Tellis - Software Engineer and DevOps Portfolio">
+  <meta name="keywords" content="software engineer, devops, portfolio, java, kubernetes">
+  <meta name="author" content="Jolyn Tellis">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com;">
 </head>
 <body class="dark-mode">
   <nav class="side-nav">
     <div class="nav-header">
       <!-- Add profile picture here -->
       <div class="profile-pic">
-        <img src="img/notion-face.png" alt="Jolyn's Profile Picture">
+        <img src="img/notion-face.jpeg" alt="Jolyn's Profile Picture">
       </div>
       <h1 class="title">Jolyn</h1>
       <p class="subtitle">Software Engineer | DevOps</p>
@@ -44,7 +50,7 @@
     </ul>
   </nav>
 
-  <button id="theme-mode">
+  <button id="theme-mode" aria-label="Toggle dark/light mode">
     <i class="fa-solid fa-moon dark-icon"></i>
     <i class="fa-solid fa-sun light-icon"></i>
   </button>
@@ -75,23 +81,23 @@
             <h4>Programming</h4>
             <div class="skills-grid">
               <div class="skill-item">
-                <img src="https://img.icons8.com/?size=100&id=13679&format=png&color=000000" alt="Java">
+                <img loading="lazy" src="https://img.icons8.com/?size=100&id=13679&format=png" alt="Java">
                 <span>Java</span>
               </div>
               <div class="skill-item">
-                <img src="https://img.icons8.com/?size=100&id=13441&format=png&color=000000" alt="Python">
+                <img loading="lazy" src="https://img.icons8.com/?size=100&id=13441&format=png&color=000000" alt="Python">
                 <span>Python</span>
               </div>
               <div class="skill-item">
-                <img src="https://img.icons8.com/?size=100&id=9MJf0ngDwS8z&format=png&color=000000" alt="Bash">
+                <img loading="lazy" src="https://img.icons8.com/?size=100&id=9MJf0ngDwS8z&format=png&color=000000" alt="Bash">
                 <span>Bash</span>
               </div>
               <div class="skill-item">
-                <img src="https://img.icons8.com/?size=100&id=44442&format=png&color=000000" alt="Golang">
+                <img loading="lazy" src="https://img.icons8.com/?size=100&id=44442&format=png&color=000000" alt="Golang">
                 <span>Golang</span>
               </div>
               <div class="skill-item">
-                <img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000" alt="HTML">
+                <img loading="lazy" src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000" alt="HTML">
                 <span>HTML/CSS</span>
               </div>
             </div>
@@ -101,35 +107,35 @@
             <h4>DevOps & Tools</h4>
             <div class="skills-grid">
               <div class="skill-item">
-                <img src="https://img.icons8.com/?size=100&id=39292&format=png&color=000000" alt="Jenkins">
+                <img loading="lazy" src="https://img.icons8.com/?size=100&id=39292&format=png&color=000000" alt="Jenkins">
                 <span>Jenkins</span>
               </div>
               <div class="skill-item">
-                <img src="https://img.icons8.com/?size=100&id=cdYUlRaag9G9&format=png&color=000000" alt="Docker">
+                <img loading="lazy" src="https://img.icons8.com/?size=100&id=cdYUlRaag9G9&format=png&color=000000" alt="Docker">
                 <span>Docker</span>
               </div>
               <div class="skill-item">
-                <img src="https://img.icons8.com/?size=100&id=cvzmaEA4kC0o&format=png&color=000000" alt="Kubernetes">
+                <img loading="lazy" src="https://img.icons8.com/?size=100&id=cvzmaEA4kC0o&format=png&color=000000" alt="Kubernetes">
                 <span>Kubernetes</span>
               </div>
               <div class="skill-item">
-                <img src="https://helm.sh/img/helm.svg" alt="Helm">
+                <img loading="lazy" src="https://helm.sh/img/helm.svg" alt="Helm">
                 <span>Helm</span>
               </div>
               <div class="skill-item">
-                <img src="https://img.icons8.com/?size=100&id=20906&format=png&color=000000" alt="Git">
+                <img loading="lazy" src="https://img.icons8.com/?size=100&id=20906&format=png&color=000000" alt="Git">
                 <span>Git</span>
               </div>
               <div class="skill-item">
-                <img src="https://img.icons8.com/?size=100&id=WHRLQdbEXQ16&format=png&color=000000" alt="GCP">
+                <img loading="lazy" src="https://img.icons8.com/?size=100&id=WHRLQdbEXQ16&format=png&color=000000" alt="GCP">
                 <span>GCP</span>
               </div>
               <div class="skill-item">
-                <img src="https://www.rancher.com/assets/img/logos/rancher-logo-cow-blue.svg" alt="Rancher">
+                <img loading="lazy" src="https://www.rancher.com/assets/img/logos/rancher-logo-cow-blue.svg" alt="Rancher">
                 <span>Rancher</span>
               </div>
               <div class="skill-item">
-                <img src="https://img.icons8.com/?size=100&id=49188&format=png&color=000000" alt="Splunk">
+                <img loading="lazy" src="https://img.icons8.com/?size=100&id=49188&format=png&color=000000" alt="Splunk">
                 <span>Splunk</span>
               </div>
             </div>
@@ -139,11 +145,11 @@
             <h4>Other Tools</h4>
             <div class="skills-grid">
               <div class="skill-item">
-                <img id="notion" src="https://img.icons8.com/?size=100&id=uVERmCBZZACL&format=png&color=ffffff" alt="Notion">
+                <img loading="lazy" id="notion" src="https://img.icons8.com/?size=100&id=uVERmCBZZACL&format=png&color=ffffff" alt="Notion">
                 <span>Notion</span>
               </div>
               <div class="skill-item">
-                <img src="https://img.icons8.com/?size=100&id=oROcPah5ues6&format=png&color=000000" alt="Jira">
+                <img loading="lazy" src="https://img.icons8.com/?size=100&id=oROcPah5ues6&format=png&color=000000" alt="Jira">
                 <span>Jira</span>
               </div>
             </div>

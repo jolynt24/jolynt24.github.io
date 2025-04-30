@@ -56,7 +56,6 @@ body {
   flex: 1;
   max-width: calc(100% - 250px);
   overflow-y: auto;
-  flex: 1 0 auto;
 }
 
 section {
@@ -571,7 +570,6 @@ body.light-mode .tech-tag:hover {
 /* footer */
 
 #footer {
-  font-size: 10px;
   text-align: center;
   padding: 1rem 0;
   margin-top: 2rem;
@@ -590,218 +588,16 @@ body > div:last-of-type {
   border-top: 1px solid var(--accent-color);
 }
 
-@media screen and (max-width: 600px) {
-
-  section {
-    padding: 20px;
-  }
-
-  .section-head {
-    font-size: 20px;
-  }
-
-  /* header */
-
-  #header {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #theme-mode {
-    top: 1rem;
-    right: 1rem;
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-
-  #theme-mode i {
-    font-size: 1.2rem;
-  }
-
-  .subtitle {
-    font-size: 12px;
-    margin-bottom: 20px;
-  }
-
-  .social-icons {
-    position: static;
-    margin-top: 10px;
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .social-icons a {
-    font-size: 25px;
-    margin: 0 5px;
-  }
-
-  /* about-me */
-
-  .about-me-content p {
-    font-size: 14px;
-  }
-
-  /* skills */
-
-  #section h4 {
-    font-size: 14px;
-  }
-
-  .skill-item {
-    margin: 5px;
-    min-width: 50px;
-    padding: 10px;
-  }
-
-  .skill-item img {
-    width: 25px;
-    height: auto;
-  }
-
-  .skill-item h5 {
-    font-size: 10px;
-  }
-
-  /* projects */
-
-  .project-item {
-    width: 50%;
-    padding: 5px;
-  }
-
-  .project-item h5 {
-    font-size: 14px;
-  }
-
-  .project-desc {
-    margin: 5px 0;
-  }
-
-  .project-links {
-    margin: 5px 0;
-  }
-
-  .project-item-github i {
-    font-size: 40px;
-  }
-
-  .project-tech-stack {
-    margin: 5px 0;
-  }
-
-  .project-tech-stack img {
-    width: 15px;
-    height: auto;
-  }
-
-  /* timeline */
-
-  .timeline-date {
-    font-size: 12px
-  }
-
-  .timeline-desc h4 {
-    font-size: 14px;
-  }
-
-  .timeline-desc p {
-    font-size: 10px;
-  }
-
-  body {
-    flex-direction: column;
-  }
-
-  .side-nav {
-    position: static;
-    width: 100%;
-    height: auto;
-    border-right: none;
-    border-bottom: 1px solid var(--accent-color);
-  }
-
-  .main-content {
-    margin-left: 0;
-    max-width: 100%;
-    padding: 1rem;
-  }
-
-  .profile-pic {
-    width: 80px;
-    height: 80px;
-  }
-
-  .timeline-container {
-    padding-left: 2rem;
-  }
-  
-  .timeline-container::before {
-    left: 0.5rem;
-  }
-  
-  .timeline-marker {
-    left: -2rem;
-    width: 1.2rem;
-    height: 1.2rem;
-  }
-  
-  .timeline-marker i {
-    font-size: 0.7rem;
-  }
-  
-  .timeline-item::after {
-    left: -1.2rem;
-    width: 1.2rem;
-  }
-}
-
-/* Additional fixes specifically for very small screens */
-@media screen and (max-width: 480px) {
-  .main-content {
-    padding: 0.5rem;
-  }
-  
-  section {
-    padding: 1rem 0;
-  }
-
-  .skills-grid {
-    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
-    gap: 1rem; 
-  }
-  
-  .skill-item img {
-    width: 25px;
-    height: 25px;
-  }
-
-  .nav-links {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  
-  .nav-links li {
-    margin: 0.2rem;
-  }
-  
-  .nav-header {
-    flex-direction: column;
-  }
-  
-  .profile-pic {
-    margin: 0 0 0.5rem 0;
-  }
-}
-
 /* Ensure proper content width on mobile */
 @media screen and (max-width: 768px) {
 
   .main-content {
-    margin-left: 200px;
-    max-width: calc(100% - 200px);
-    padding: 1rem 0;
+    margin: 0;
+    padding: 1rem 0rem;
     width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
+    overflow-x: hidden;
   }
 
   section {
@@ -819,7 +615,6 @@ body > div:last-of-type {
     box-sizing: border-box;
   }
   
-  /* Ensure the timeline container aligns properly */
   .timeline-container {
     width: 100%;
     box-sizing: border-box;
@@ -836,14 +631,26 @@ body > div:last-of-type {
   }
 
   .profile-pic {
-    width: 60px;
-    height: 60px;
-    margin: 0 1rem 0 0;
+    width: 80px;
+    height: 80px;
+    margin: 0 0.5rem 0 0;
   }
 
   .skills-grid {
     grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
     gap: 1.2rem; 
+  }
+
+  .skill-item {
+    border: 1px solid var(--icon-color);
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    min-height: 60px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
   .skill-item img {
@@ -910,6 +717,7 @@ body > div:last-of-type {
     justify-content: center;
     text-align: center;
     gap: 0.5rem;
+    width: 100%;
   }
   
   .nav-header .title {

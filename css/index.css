@@ -436,7 +436,7 @@ section {
 
 .project-item h5 {
   font-size: 18px;
-  color: var(--accent-color);
+  color: var (--accent-color);
   margin-bottom: 5%;
   margin-top: 0;
   padding: 0;
@@ -1035,5 +1035,180 @@ body > div:last-of-type {
   .profile-pic {
     width: 80px;
     height: 80px;
+  }
+}
+
+/* Mobile navigation improvements */
+@media screen and (max-width: 768px) {
+  /* Convert fixed sidebar to mobile header */
+  .side-nav {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--accent-color);
+    padding: 1rem;
+    box-sizing: border-box;
+    z-index: 100;
+    background-color: var(--bg-color);
+  }
+  
+  /* Rearrange profile section for mobile */
+  .nav-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .profile-pic {
+    width: 60px;
+    height: 60px;
+    margin: 0 1rem 0 0;
+  }
+  
+  .nav-header .title {
+    font-size: 1.8rem;
+    margin: 0;
+  }
+  
+  .nav-header .subtitle {
+    font-size: 0.8rem;
+    margin: 0;
+    width: 100%;
+  }
+  
+  /* Style the navigation links for mobile */
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
+    padding: 0;
+  }
+  
+  .nav-links li {
+    margin: 0 0.5rem;
+  }
+  
+  .nav-links a {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.5rem;
+  }
+  
+  /* Position social icons for mobile */
+  .social-icons {
+    position: static;
+    margin-top: 0.5rem;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .social-icons a {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  .social-icons i {
+    font-size: 1.2rem;
+  }
+  
+  /* Adjust main content to start after the header */
+  .main-content {
+    margin-left: 0;
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Fix theme button position */
+  #theme-mode {
+    top: 0.7rem;
+    right: 0.7rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    z-index: 101;
+  }
+  
+  #theme-mode i {
+    font-size: 1rem;
+  }
+}
+
+/* Additional fixes for very small screens */
+@media screen and (max-width: 480px) {
+  .nav-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .nav-links li {
+    margin: 0.2rem;
+  }
+  
+  .nav-header {
+    flex-direction: column;
+  }
+  
+  .profile-pic {
+    margin: 0 0 0.5rem 0;
+  }
+}
+
+/* Fix the section padding and width on mobile */
+@media screen and (max-width: 768px) {
+  /* Ensure main content takes full width */
+  .main-content {
+    margin-left: 0;
+    padding: 1rem;
+    width: 100%;
+    max-width: 100%; /* Override the previous max-width setting */
+    box-sizing: border-box;
+  }
+  
+  /* Fix section padding to be more appropriate for mobile */
+  section {
+    padding: 1rem 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Ensure projects container and other grid layouts are full width */
+  .projects-container,
+  .skills-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Ensure the timeline container aligns properly */
+  .timeline-container {
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: 0;
+    padding-left: 3rem;
+  }
+  
+  /* Fix the footer to take full width */
+  body > div:last-of-type {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+/* Additional fixes specifically for very small screens */
+@media screen and (max-width: 480px) {
+  .main-content {
+    padding: 0.5rem;
+  }
+  
+  section {
+    padding: 1rem 0;
   }
 }

@@ -272,7 +272,7 @@ nav {
 .skills-container {
   width: 100%;
   max-width: 900px;
-  margin: 0 auto;
+  margin: 0;
   overflow: visible;
 }
 
@@ -329,6 +329,38 @@ nav {
   word-break: break-word;
   max-width: 100%;
   white-space: normal;
+}
+
+/* ===== CERTIFICATIONS ===== */
+.certifications-section {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.certifications-section h4 {
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+  font-size: 1.1rem;
+  border-bottom: 1px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+}
+
+.certifications-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.credly-badge {
+  flex: 0 0 auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.credly-badge:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(var(--accent-color-rgb), 0.2);
 }
 
 /* ======PROJECTS======= */

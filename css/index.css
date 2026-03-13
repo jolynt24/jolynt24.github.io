@@ -75,7 +75,7 @@ body {
 }
 
 section {
-  padding: var(--space-xl) var(--space-xl);
+  padding: var(--space-md) var(--space-xl);
   color: var(--text-color);
   text-align: left;
 }
@@ -96,7 +96,7 @@ section {
 
 .nav-header .title {
   font-size: var(--text-hero);
-  font-weight: 400;
+  font-weight: 300;
   color: var(--accent-color);
   line-height: 1;
   letter-spacing: -0.02em;
@@ -128,7 +128,7 @@ section {
   text-decoration: none;
   font-size: 1.1rem;
   opacity: 0.6;
-  transition: opacity 0.2s ease;
+  transition: color 0.15s ease, opacity 0.15s ease;
   display: block;
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -146,6 +146,7 @@ section {
 }
 
 .nav-links a:hover {
+  color: var(--accent-color);
   opacity: 1;
 }
 
@@ -191,19 +192,20 @@ section {
   width: 3rem;
   height: 3rem;
   border-radius: 8px;
-  background-color: var(--accent-color);
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  background-color: transparent;
+  border: 1px solid var(--accent-color);
+  transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
   text-decoration: none;
 }
 
 .social-icons a:hover {
-  transform: translateY(-3px);
-  opacity: 0.85;
+  opacity: 0.75;
+  transform: scale(1.08);
 }
 
 .social-icons i {
   font-size: 1.5rem;
-  color: var(--bg-color); 
+  color: var(--accent-color);
 }
 
 /* ===== THEME SWITCHER ===== */
@@ -374,24 +376,40 @@ nav {
 /* ======PROJECTS======= */
 .projects-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.5rem;
   margin-top: 2rem;
+  max-width: 680px;
+}
+
+.more-projects-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: var(--text-sm);
+  color: var(--text-color);
+  text-decoration: none;
+  opacity: 0.6;
+  transition: color 0.15s ease, opacity 0.15s ease;
+}
+
+.more-projects-link:hover {
+  color: var(--accent-color);
+  opacity: 1;
 }
 
 .project-card {
-  border: 2px solid var(--accent-color);
+  border: 1px solid rgba(var(--accent-color-rgb), 0.3);
   border-radius: 10px;
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .project-header {
-  border-bottom: 1px solid var(--accent-color);
+  border-bottom: 1px solid rgba(var(--accent-color-rgb), 0.3);
   padding: var(--space-xs) var(--space-md);
   display: flex;
   justify-content: space-between;
@@ -461,8 +479,6 @@ body.dark-mode .tech-tag {
 
 body.dark-mode .tech-tag:hover {
   background-color: rgba(74, 158, 69, 0.3);
-  transform: translateY(-2px);
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Light mode styling for tech tags - Pinkish */
@@ -474,34 +490,8 @@ body.light-mode .tech-tag {
 
 body.light-mode .tech-tag:hover {
   background-color: rgba(224, 48, 112, 0.2);
-  transform: translateY(-2px);
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
 }
 
-.more-projects {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.more-projects a {
-  color: var(--text-color);
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  width: 100%;
-  height: 100%;
-}
-
-.more-projects i {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  color: var(--accent-color);
-}
 
 /*==========TIMELINE==========*/
 .timeline-container {
@@ -615,6 +605,7 @@ body.light-mode .tech-tag:hover {
 .project-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border-color: var(--accent-color);
   will-change: transform;
 }
 

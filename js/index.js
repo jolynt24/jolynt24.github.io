@@ -1,5 +1,18 @@
 // Simplified version
 
+const timelineObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      timelineObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.timeline-item').forEach(item => {
+  timelineObserver.observe(item);
+});
+
 function updateBadgeTheme() {
   const badges = document.querySelectorAll('.credly-badge');
   const isDarkMode = document.body.classList.contains('dark-mode');

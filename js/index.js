@@ -1,67 +1,50 @@
-// Simplified version
+// ===== THEME TOGGLE =====
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
 
-const timelineObserver = new IntersectionObserver((entries) => {
+// Load saved preference
+const saved = localStorage.getItem('theme');
+if (saved === 'light') {
+  body.classList.replace('dark-mode', 'light-mode');
+}
+
+themeToggle?.addEventListener('click', () => {
+  const isDark = body.classList.contains('dark-mode');
+  body.classList.toggle('dark-mode', !isDark);
+  body.classList.toggle('light-mode', isDark);
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+});
+
+// ===== TIMELINE SCROLL REVEAL =====
+const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      timelineObserver.unobserve(entry.target);
+      observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.15 });
+}, { threshold: 0.1 });
 
-document.querySelectorAll('.timeline-item').forEach(item => {
-  timelineObserver.observe(item);
-});
+document.querySelectorAll('.timeline-item').forEach(el => observer.observe(el));
 
-function updateBadgeTheme() {
-  const badges = document.querySelectorAll('.credly-badge');
-  const isDarkMode = document.body.classList.contains('dark-mode');
-  const newTheme = isDarkMode ? 'dark' : 'light';
+// ===== ACTIVE NAV LINK =====
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
 
-  badges.forEach(badge => {
-    badge.setAttribute('data-theme', newTheme);
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => {
+        link.style.color = '';
+        link.style.opacity = '';
+      });
+      const active = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+      if (active) {
+        active.style.color = 'var(--text-strong)';
+        active.style.opacity = '1';
+      }
+    }
   });
-  // Re-initialize Credly badges to apply the new theme
-  if (window.Credly && typeof window.Credly.init === 'function') {
-    window.Credly.init();
-  }
-}
+}, { threshold: 0.4 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const themeButton = document.getElementById('theme-mode');
-  if (!themeButton) {
-    console.error('Theme button not found');
-    return;
-  }
-  
-  // Load saved preference
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'light') {
-    document.body.classList.remove('dark-mode');
-    document.body.classList.add('light-mode');
-  }
-  updateBadgeTheme();
-});
-
-// Remove duplicate theme button click handler
-document.addEventListener('click', (e) => {
-  if (e.target.closest('#theme-mode')) {
-    toggleTheme();
-  }
-});
-
-// Add localStorage to remember user's theme preference
-function toggleTheme() {
-  document.body.classList.toggle('dark-mode');
-  document.body.classList.toggle('light-mode');
-  localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-  updateBadgeTheme();
-  
-  // Update Notion icon if needed
-  const imgNotion = document.getElementById("notion");
-  if (imgNotion) {
-    imgNotion.src = document.body.classList.contains('dark-mode')
-      ? 'https://img.icons8.com/?size=100&id=uVERmCBZZACL&format=png&color=ffffff'
-      : 'https://img.icons8.com/?size=100&id=uVERmCBZZACL&format=png&color=000000';
-  }
-}
+sections.forEach(s => navObserver.observe(s));

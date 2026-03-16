@@ -1,226 +1,190 @@
 <!DOCTYPE html>
-<html lang="en" role="document">
+<html lang="en">
 <head>
-  <title>Jolyn - Portfolio Website</title>
+  <title>Jolyn Tellis — Software Engineer</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta name="description" content="Jolyn Tellis — Software Engineer and DevOps Portfolio">
+  <meta name="author" content="Jolyn Tellis">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SX1GE05SKG"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-SX1GE05SKG');
-  </script>
-  <meta charset="UTF-8">
-  <meta name="description" content="Jolyn Tellis - Software Engineer and DevOps Portfolio">
-  <meta name="keywords" content="software engineer, devops, portfolio, java, kubernetes">
-  <meta name="author" content="Jolyn Tellis">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/index.css">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SX1GE05SKG"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SX1GE05SKG');</script>
 </head>
 <body class="dark-mode">
-  <nav class="side-nav">
-    <div class="nav-header">
-      <!-- Add profile picture here -->
+
+  <!-- SIDEBAR NAV -->
+  <nav class="side-nav" aria-label="Primary navigation">
+    <div class="nav-identity">
       <div class="profile-pic">
-        <img  loading="lazy" src="img/notion-face.jpeg" alt="Jolyn's Profile Picture">
+        <img loading="lazy" src="img/notion-face.jpeg" alt="Jolyn Tellis">
       </div>
-      <h1 class="title">Jolyn</h1>
-      <p class="subtitle">Software Engineer | DevOps</p>
-      <div class="social-icons">
-        <a href="https://www.linkedin.com/in/jolyn-tellis/" target="_blank" aria-label="LinkedIn Profile">
-          <i class="fa-brands fa-linkedin"></i>
-        </a>
-        <a href="https://github.com/jolynt24" target="_blank" aria-label="GitHub Profile">
-          <i class="fa-brands fa-github"></i>
-        </a>
-      </div>
+      <h1 class="nav-name">Jolyn</h1>
+      <p class="nav-role">Software Engineer <span class="sep">/</span> DevOps</p>
     </div>
-    <ul class="nav-links">
-      <li><a href="#about-me">about me</a></li>
-      <li><a href="#skills">skills</a></li>
-      <li><a href="#projects">projects</a></li>
-      <li><a href="#timeline">timeline</a></li>
+
+    <ul class="nav-links" role="list">
+      <li><a href="#about-me" class="nav-link">about</a></li>
+      <li><a href="#skills" class="nav-link">skills</a></li>
+      <li><a href="#projects" class="nav-link">projects</a></li>
+      <li><a href="#timeline" class="nav-link">timeline</a></li>
     </ul>
+
+    <div class="nav-footer">
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/jolyn-tellis/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://github.com/jolynt24" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+          <span>GitHub</span>
+        </a>
+      </div>
+
+      <button id="theme-toggle" aria-label="Toggle light/dark mode">
+        <span class="theme-icon dark-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          light
+        </span>
+        <span class="theme-icon light-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          dark
+        </span>
+      </button>
+    </div>
   </nav>
 
-  <button id="theme-mode" aria-label="Toggle dark/light mode">
-    <i class="fa-solid fa-moon dark-icon"></i>
-    <i class="fa-solid fa-sun light-icon"></i>
-  </button>
-
+  <!-- MAIN CONTENT -->
   <main class="main-content">
-    <section id="about-me">
-      <h3 class="section-head">about me</h3>
-      <div class="about-me-content">
-        <p>
-        Software Engineer at the intersection of dev and DevOps.
-        <br><br>
-        I build reliable systems, pick things up fast, and work best when there's a problem that needs a self-directed fix. 
-        <br>
-        <br>
-        Off the clock: anime, stationery, hiking, and café-hopping.
-        </p>
-        
+
+    <section id="about-me" class="section">
+      <h2 class="section-label">about</h2>
+      <div class="about-body">
+        <p>Software engineer at the intersection of dev and DevOps. I build reliable systems, pick things up fast, and work best when there's a problem that needs a self-directed fix.</p>
+        <p class="about-aside">Off the clock: anime, stationery, hiking, café-hopping.</p>
       </div>
     </section>
 
-    <section id="skills">
-      <h3 class="section-head">skills</h3>
-      <div class="skills-container">
-        <div class="skills-categories">
-          <div class="skills-category">
-            <h4>Software Engineering</h4>
-            <div class="project-tech">
-              <span class="tech-tag">Java</span>
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">Golang</span>
-              <span class="tech-tag">Bash</span>
-              <span class="tech-tag">HTML/CSS</span>
-              <span class="tech-tag">Spring Boot</span>
-              <span class="tech-tag">Quarkus</span>
-            </div>
-          </div>
-
-          <div class="skills-category">
-            <h4>DevOps / Platform Engineering</h4>
-            <div class="project-tech">
-              <span class="tech-tag">Docker</span>
-              <span class="tech-tag">Kubernetes</span>
-              <span class="tech-tag">Helm</span>
-              <span class="tech-tag">Jenkins</span>
-              <span class="tech-tag">Terraform</span>
-              <span class="tech-tag">GCP</span>
-              <span class="tech-tag">Rancher</span>
-              <span class="tech-tag">Git</span>
-              <span class="tech-tag">Dynatrace</span>
-              <span class="tech-tag">Jira</span>
-            </div>
-          </div>
+    <section id="skills" class="section">
+      <h2 class="section-label">skills</h2>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3 class="skill-category">Software Engineering</h3>
+          <ul class="skill-list" role="list">
+            <li>Java</li>
+            <li>Python</li>
+            <li>Bash</li>
+            <li>Spring Boot</li>
+            <li>Quarkus</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3 class="skill-category">DevOps / Platform</h3>
+          <ul class="skill-list" role="list">
+            <li>Kubernetes</li>
+            <li>Terraform</li>
+            <li>Jenkins / Harness</li>
+            <li>GCP</li>
+            <li>Dynatrace</li>
+          </ul>
         </div>
       </div>
     </section>
-    
-    <section id="projects">
-      <h3 class="section-head">featured projects</h3>
-      <div class="projects-container">
-        <div class="project-card">
-          <div class="project-header">
-            <h4>Hybrid Quantum Recommendation System</h4>
-            <div class="project-links">
-              <a href="https://github.com/jolynt24/QRS/tree/main" target="_blank" aria-label="GitHub Repository">
-                <i class="fa-brands fa-github"></i>
-              </a>
-            </div>
-          </div>
-          <div class="project-content">
-            <p>MSc research project comparing classical and hybrid quantum machine learning models for movie recommendation. Built on the MovieLens dataset using collaborative filtering, with one computational step replaced by a quantum calculation. The hybrid model outperformed the classical baseline by 60% in recommendation accuracy.</p>
-            <div class="project-tech">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">TensorFlow</span>
-              <span class="tech-tag">NumPy</span>
-              <span class="tech-tag">Google Colab</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a href="https://github.com/jolynt24" target="_blank" class="more-projects-link">More projects → GitHub</a>
-    </section>
 
-    <section id="timeline">
-      <h3 class="section-head">professional timeline</h3>
-      <div class="timeline-container">
+    <section id="projects" class="section">
+      <h2 class="section-label">projects</h2>
+      <div class="projects-list">
 
-        <div class="timeline-item">
-          <div class="timeline-marker">
-            <i class="fa-solid fa-laptop-code"></i>
+        <article class="project-card">
+          <div class="project-meta">
+            <span class="project-year">2023</span>
+            <a href="https://github.com/jolynt24/QRS/tree/main" target="_blank" rel="noopener" class="project-repo" aria-label="GitHub repository">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
           </div>
-          <div class="timeline-content">
-            <h4 class="timeline-date">Sep 2024</h4>
-            <div class="timeline-desc">
-              <h4>Software Engineer</h4>
-              <p>Lloyds Banking Group, London, UK</p>
-            </div>
+          <h3 class="project-title">Hybrid Quantum Recommendation System</h3>
+          <p class="project-desc">MSc research comparing classical and hybrid quantum ML models for movie recommendation. Built on MovieLens with collaborative filtering — one computational step replaced by a quantum circuit. Hybrid model outperformed classical baseline by 60% in recommendation accuracy.</p>
+          <div class="project-tags">
+            <span>Python</span>
+            <span>TensorFlow</span>
+            <span>NumPy</span>
+            <span>Google Colab</span>
           </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-marker">
-            <i class="fa-solid fa-laptop-code"></i>
-          </div>
-          <div class="timeline-content">
-            <h4 class="timeline-date">Sep 2022</h4>
-            <div class="timeline-desc">
-              <h4>Technology Engineering Graduate</h4>
-              <p>Lloyds Banking Group, London, UK</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-marker">
-            <i class="fa-solid fa-graduation-cap"></i>
-          </div>
-          <div class="timeline-content">
-            <h4 class="timeline-date">Oct 2021</h4>
-            <div class="timeline-desc">
-              <h4>MSc Advanced Computer Science with Research</h4>
-              <p>University of Hertfordshire, Hatfield, UK</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-marker">
-            <i class="fa-solid fa-graduation-cap"></i>
-          </div>
-          <div class="timeline-content">
-            <h4 class="timeline-date">July 2019</h4>
-            <div class="timeline-desc">
-              <h4>BE Computer Science & Engineering</h4>
-              <p>Visvesvaraya Technological University, Belgaum, IN</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-marker">
-            <i class="fa-solid fa-code"></i>
-          </div>
-          <div class="timeline-content">
-            <h4 class="timeline-date">Aug 2017</h4>
-            <div class="timeline-desc">
-              <h4>iOS Application Development Intern</h4>
-              <p>Monkfox, Bangalore, IN</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-marker">
-            <i class="fa-solid fa-microchip"></i>
-          </div>
-          <div class="timeline-content">
-            <h4 class="timeline-date">Jan 2017</h4>
-            <div class="timeline-desc">
-              <h4>Arduino Embedded Developer Intern</h4>
-              <p>Oscki Labs, Bangalore, IN</p>
-            </div>
-          </div>
-        </div>
+        </article>
 
       </div>
+      <a href="https://github.com/jolynt24" target="_blank" rel="noopener" class="more-link">
+        All projects on GitHub
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
     </section>
+
+    <section id="timeline" class="section">
+      <h2 class="section-label">timeline</h2>
+      <ol class="timeline" role="list">
+
+        <li class="timeline-item">
+          <span class="tl-date">Sep 2024</span>
+          <div class="tl-body">
+            <h3 class="tl-role">Software Engineer</h3>
+            <p class="tl-org">Lloyds Banking Group — London, UK</p>
+          </div>
+        </li>
+
+        <li class="timeline-item">
+          <span class="tl-date">Sep 2022</span>
+          <div class="tl-body">
+            <h3 class="tl-role">Technology Engineering Graduate</h3>
+            <p class="tl-org">Lloyds Banking Group — London, UK</p>
+          </div>
+        </li>
+
+        <li class="timeline-item">
+          <span class="tl-date">Oct 2021</span>
+          <div class="tl-body">
+            <h3 class="tl-role">MSc Advanced Computer Science with Research</h3>
+            <p class="tl-org">University of Hertfordshire — Hatfield, UK</p>
+          </div>
+        </li>
+
+        <li class="timeline-item">
+          <span class="tl-date">Jul 2019</span>
+          <div class="tl-body">
+            <h3 class="tl-role">BE Computer Science & Engineering</h3>
+            <p class="tl-org">Visvesvaraya Technological University — Belgaum, IN</p>
+          </div>
+        </li>
+
+        <li class="timeline-item">
+          <span class="tl-date">Aug 2017</span>
+          <div class="tl-body">
+            <h3 class="tl-role">iOS Application Development Intern</h3>
+            <p class="tl-org">Monkfox — Bangalore, IN</p>
+          </div>
+        </li>
+
+        <li class="timeline-item">
+          <span class="tl-date">Jan 2017</span>
+          <div class="tl-body">
+            <h3 class="tl-role">Arduino Embedded Developer Intern</h3>
+            <p class="tl-org">Oscki Labs — Bangalore, IN</p>
+          </div>
+        </li>
+
+      </ol>
+    </section>
+
   </main>
 
-  <div>
-    <p id="footer">&copy; 2026 Jolyn Tellis</p>
-  </div>
+  <footer class="site-footer">
+    <p>© 2026 Jolyn Tellis</p>
+  </footer>
+
   <script src="js/index.js"></script>
-  <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
 </body>
 </html>
